@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@400;900&display=swap");
 :root {
     --color1: white;
     --color2: brown;
@@ -17,6 +17,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 a {
@@ -95,17 +99,54 @@ a {
     background-color: var(--color3);
 }
 
-#about-me fieldset {
-    height: 98%;
-    width: 98%;
-    margin: auto;
-    border: 5px solid var(--color3);
+#about-me {
+    color: var(--color3);
+    background: var(--color1);
 }
 
-#about-me fieldset legend {
-    color: var(--color3);
-    font-size: 3rem;
-    font-weight: 900;
-    margin: auto 20px;
-    padding: 0 10px;
+#about-me div {
+    border: 5px solid var(--color3);
+    height: calc(93% - 10px);
+    width: 92%;
+    margin: 2% auto;
+    padding: 1em 2.5em 2.5em 2.5em;
+    justify-content: space-around;
+    position: relative;
+}
+
+#about-me div h2 {
+    font-size: 2.5rem;
+    padding: 0 0.35em;
+    position: absolute;
+    top: -4%;
+    left: 5%;
+    background: var(--color1);
+    font-weight: 100;
+}
+
+.para {
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    width: 65%;
+    word-spacing: 3px;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    opacity: 0;
+}
+
+.para:nth-of-type(1) {
+    align-self: flex-start;
+    transform: translateX(80%);
+}
+
+.para:nth-of-type(2) {
+    align-self: flex-end;
+    transform: translateX(-80%);
+    transition-delay: 0.5s;
+}
+
+#about-me .slide-in-view {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 1s ease-in-out, opacity 2s ease-in-out;
 }
