@@ -39,12 +39,12 @@
                     </span>
                     <span> a Student | Developer | Fitness Enthusiast</span>
                 </div>
-                <a href="#about-me" id="know-more">Know more</a>
+                <a href="#about-me" id="know-more" class="cta-button-1">Know more</a>
             </div>
         </div>
     </section>
     <section class="sections" id="about-me">
-        <div class="flex slide-wrapper">
+        <div class="flex" id="slide-wrapper">
             <h2>More about Me</h2>
             <p class="para slides">
                 I am a Front-end Web Developer based in Gaya, Bihar, India. Currently, I am studying engineering in GBPGEC located in New Delhi, in 2<sup>nd</sup> year (about to complete). I completed my matriculation in my hometown only. Besides education,
@@ -57,7 +57,39 @@
             <a href="#portfolio" id="look-into-portfolio">Look into my Portfolio</a>
         </div>
     </section>
-    <section class="sections" id="portfolio"></section>
+    <section class="sections flex" id="portfolio">
+        <h2>PORTFOLIO</h2>
+        <div id="projects-wrapper" class="flex">
+            <div class="projects">
+                <a href="https://fitgang.github.io/type_master/">
+                    <img src="img/typemaster.jpg" alt="Typemaster" class="project-img">
+                    <h3 class="name">Typemaster</h3>
+                    <p class="description">
+                        what makes this typing game special is its difficulty and the <em>Speech Synthesis API</em> helping you focus on the keyboard, not on the screen.
+                    </p>
+                </a>
+            </div>
+            <div class="projects">
+                <a href="https://fitgang.github.io/currency_converter/">
+                    <img src="img/currency_converter.jpg" alt="Currency converter" class="project-img">
+                    <h3 class="name">Currency converter</h3>
+                    <p class="description">
+                        Using a <em>third party API</em>, this application can help you exchange your money in more than 100 currencies and compare them too.
+                    </p>
+                </a>
+            </div>
+            <div class="projects">
+                <a href="https://fitgang.github.io/minesweeper/">
+                    <img src="img/minesweeper.jpg" alt="Minesweeper" class="project-img">
+                    <h3 class="name">Minesweeper</h3>
+                    <p class="description">
+                        Yes, a classic one. It can teach a developer about <em>recursion</em> and still a brain drainer.
+                    </p>
+                </a>
+            </div>
+        </div>
+        <a href="#contact" id="get-in-touch" class="cta-button-1">Get in Touch</a>
+    </section>
     <footer id="contact"></footer>
     <script src="script.js"></script>
 </body>

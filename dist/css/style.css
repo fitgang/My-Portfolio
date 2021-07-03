@@ -25,6 +25,7 @@ html {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 .header {
@@ -67,6 +68,7 @@ a {
 #name {
     vertical-align: text-top;
     padding-left: 3px;
+    white-space: nowrap;
 }
 
 #name span {
@@ -83,7 +85,7 @@ a {
     transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
 
-#know-more {
+.cta-button-1 {
     font-weight: 900;
     color: var(--color3);
     padding: 1em 1.5em;
@@ -92,9 +94,9 @@ a {
     border: var(--color3) 2px solid;
 }
 
-#know-more:hover,
-#know-more:focus,
-#know-more:active {
+.cta-button-1:hover,
+.cta-button-1:focus,
+.cta-button-1:active {
     color: var(--color1);
     background-color: var(--color3);
 }
@@ -115,12 +117,15 @@ a {
 }
 
 #about-me div h2 {
-    font-size: 2.5rem;
-    padding: 0 0.35em;
     position: absolute;
     top: -4%;
     left: 5%;
     background: var(--color1);
+}
+
+h2 {
+    font-size: 2.5rem;
+    padding: 0 0.35em;
     font-weight: 100;
 }
 
@@ -136,19 +141,19 @@ a {
 
 .para:nth-of-type(1) {
     align-self: flex-start;
-    transform: translateX(80%);
+    transform: translateX(50%);
 }
 
 .para:nth-of-type(2) {
     align-self: flex-end;
-    transform: translateX(-80%);
-    transition-delay: 0.5s;
+    transform: translateX(-50%);
+    transition-delay: 0.2s;
 }
 
 #about-me .slide-in-view {
     transform: translateX(0);
     opacity: 1;
-    transition: transform 1s ease-in-out, opacity 2s ease-in-out;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
 
 #look-into-portfolio {
@@ -183,5 +188,131 @@ a {
 @keyframes up-down {
     to {
         transform: translate(50%, -15px) rotateZ(45deg) skew(-20deg, -20deg);
+    }
+}
+
+#portfolio {
+    padding: 1%;
+}
+
+#projects-wrapper {
+    height: 74%;
+    width: 100%;
+    margin: 1% auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+    padding-bottom: 2em;
+}
+
+.projects {
+    text-align: center;
+    padding-bottom: 10px;
+    border: 2px solid var(--color3);
+    border-radius: 10px;
+    position: relative;
+}
+
+.project-img {
+    width: 24em;
+    height: 14em;
+    -o-object-fit: cover;
+    object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
+    border-radius: 10px 10px 0 0;
+}
+
+.name {
+    font-size: 2em;
+    font-weight: 100;
+    font-family: "Lato", sans-serif;
+}
+
+.name::first-letter {
+    font-size: 1.3em;
+}
+
+.description {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding: 25px;
+    text-align: left;
+    font-family: "Lato", sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    background: aliceblue;
+    border-radius: 10px;
+    transform-origin: left;
+    transform: scaleX(0);
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.projects:hover {
+    background: var(--color1);
+    box-shadow: 8px 8px 10px #cccccc, -8px -8px 10px #ffffff;
+}
+
+.projects:hover .description {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+#get-in-touch {
+    align-self: flex-start;
+    margin: auto 2em;
+}
+
+.vibrate {
+    -webkit-animation: vibrate 0.8s 2s;
+    animation: vibrate 0.8s 2s;
+}
+
+@-webkit-keyframes vibrate {
+    0%,
+    100% {
+        transform: translateX(0%);
+        transform-origin: 50% 50%;
+    }
+    15% {
+        transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+        transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+        transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+        transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+        transform: translateX(-6px) rotate(-1.2deg);
+    }
+}
+
+@keyframes vibrate {
+    0%,
+    100% {
+        transform: translateX(0%);
+        transform-origin: 50% 50%;
+    }
+    15% {
+        transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+        transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+        transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+        transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+        transform: translateX(-6px) rotate(-1.2deg);
     }
 }
