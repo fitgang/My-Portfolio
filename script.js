@@ -1,16 +1,26 @@
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        const slides = entry.target.querySelectorAll('.slides');
-        slides.forEach(slide => {
-            if (entry.isIntersecting) {
-                slide.classList.add('slide-in-view');
-                return; // if we added the class, exit the function
-            }
+    const entry = entries[0];
+    let query, className;
+    switch (entry.target.id) {
+        case "portfolio":
+            query = '#get-in-touch';
+            className = 'vibrate';
+            break;
+        case "slide-wrapper":
+            query = '.slides';
+            className = 'slide-in-view';
+            break;
+    }
+    const elem = entry.target.querySelectorAll(query);
+    elem.forEach(e => {
+        if (entry.isIntersecting) {
+            e.classList.add(className);
+        }
 
-            // We're not intersecting, so remove the class!
-            slide.classList.remove('slide-in-view');
-        });
+        // We're not intersecting, so remove the class!
+        else e.classList.remove(className);
     });
 });
 
-document.querySelectorAll('.slide-wrapper').forEach(e => observer.observe(e));
+observer.observe(document.querySelector('#portfolio'));
+observer.observe(document.querySelector('#slide-wrapper'));
