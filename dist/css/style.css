@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@400;600;900&display=swap");
 :root {
-    --color1: white;
-    --color2: brown;
-    --color3: black;
+    --color1: #228b22;
+    --color2: #7c7c4d;
+    --color3: #e7e6db;
 }
 
 * {
@@ -12,15 +12,19 @@
     font-family: 'Raleway', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .flex {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-flow: wrap;
 }
 
-html {
-    scroll-behavior: smooth;
+.column {
+    flex-direction: column;
 }
 
 a {
@@ -33,13 +37,111 @@ a {
 }
 
 .sections {
-    height: 100vh;
     /* only for design */
-    border: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 #home {
+    height: clamp(500px, 100vh, 900px);
+    color: var(--color1);
+    background: var(--color3);
+    padding: 2em;
+    justify-content: space-evenly;
+}
+
+#ideology {
+    margin-bottom: 2em;
+}
+
+#ideology * {
+    width: 500px;
+    margin: auto;
+}
+
+#three-words {
+    font-size: 5em;
+}
+
+#three-words span {
+    display: block;
+    height: 1em;
+}
+
+#three-words span#and {
+    font-size: 0.5em;
+    padding-top: 0.25em;
+}
+
+
+/* font weight classes*/
+
+#three-words {
+    font-weight: 900;
+}
+
+#who-btn::after {
+    font-weight: 600;
+}
+
+span#and {
+    font-weight: 100;
+}
+
+#explanation {
+    color: var(--color2);
+    margin-top: 0.5em;
+    font-size: 0.95em;
+    line-height: 1.3em;
+    word-spacing: 1px;
+    letter-spacing: 0.3px;
+}
+
+#who-btn {
+    display: inline-block;
+    width: 4em;
+    border: 3px solid var(--color1);
+    border-radius: 100px;
+    padding: 1em 1.2em;
+    margin: 2em auto auto 0;
+    background: var(--color3);
+    position: relative;
+    transition: 300ms ease-out;
+}
+
+#who-btn .fas {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 1.5em;
+}
+
+#who-btn::after {
+    content: "About me";
+    position: absolute;
+    right: 1em;
+    opacity: 0;
+}
+
+#who-btn:hover {
+    background: linear-gradient(254deg, var(--color2) 21%, transparent);
     color: var(--color3);
+    border-color: var(--color2);
+    width: 12em;
+}
+
+#who-btn:hover::after {
+    transition: opacity 0.5s ease-in;
+    opacity: 1;
+}
+
+#photo {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border: 5px solid;
+    padding: 0.1em;
 }
 
 #intro-wrapper {
@@ -126,7 +228,7 @@ a {
 h2 {
     font-size: 2.5rem;
     padding: 0 0.35em;
-    font-weight: 100;
+    font-weight: 600;
 }
 
 .para {
@@ -315,4 +417,72 @@ h2 {
     75% {
         transform: translateX(-6px) rotate(-1.2deg);
     }
+}
+
+#contact {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    padding: 1em 3em;
+    font-size: 1.2em;
+}
+
+#contact ul {
+    list-style-type: none;
+    margin: 2em auto;
+    text-align: center;
+}
+
+#contact ul li {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 0.5em;
+}
+
+#contact ul li a {
+    flex-direction: row;
+    padding: 0.3em;
+}
+
+#contact ul li i {
+    font-size: 1.5em;
+    padding-left: 0.4em;
+}
+
+#contact ul li:last-child {
+    margin-bottom: auto;
+}
+
+#contact section:last-child {
+    text-align: right;
+}
+
+#contact a {
+    position: relative;
+    transition: 0.5s ease;
+}
+
+#contact div {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color3);
+    z-index: -1;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: 0.5s ease;
+}
+
+#contact a:hover {
+    color: var(--color1);
+}
+
+#contact a:hover div {
+    transform: scaleX(1);
 }
