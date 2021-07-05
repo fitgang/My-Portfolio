@@ -16,6 +16,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .flex {
     display: flex;
     justify-content: center;
@@ -42,24 +46,30 @@ a {
 }
 
 #home {
-    height: clamp(500px, 100vh, 900px);
+    height: 100vh;
+    min-height: 500px;
+    /* add a mq to height at wrap*/
     color: var(--color1);
     background: var(--color3);
     padding: 2em;
     justify-content: space-evenly;
 }
 
+@media screen and (max-width: 950px) {
+    #home {
+        height: initial;
+        min-height: 100vh;
+    }
+}
+
 #ideology {
+    max-width: 500px;
+    min-width: 300px;
     margin-bottom: 2em;
 }
 
-#ideology * {
-    width: 500px;
-    margin: auto;
-}
-
 #three-words {
-    font-size: 5em;
+    font-size: clamp(48px, 9vw, 80px);
 }
 
 #three-words span {
@@ -90,29 +100,28 @@ span#and {
 #explanation {
     color: var(--color2);
     margin-top: 0.5em;
-    font-size: 0.95em;
+    font-size: clamp(10px, 1.4vw, 16px);
     line-height: 1.3em;
     word-spacing: 1px;
     letter-spacing: 0.3px;
 }
 
 #who-btn {
-    display: inline-block;
-    width: 4em;
+    width: clamp(36px, 5.5vw, 64px);
+    height: clamp(36px, 5.5vw, 64px);
     border: 3px solid var(--color1);
     border-radius: 100px;
-    padding: 1em 1.2em;
     margin: 2em auto auto 0;
     background: var(--color3);
     position: relative;
-    transition: 300ms ease-out;
+    transition: 300ms ease;
 }
 
 #who-btn .fas {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    font-size: 1.5em;
+    font-size: clamp(15px, 2.5vw, 28px);
+    position: absolute;
+    left: 27%;
+    transition: inherit;
 }
 
 #who-btn::after {
@@ -126,7 +135,11 @@ span#and {
     background: linear-gradient(254deg, var(--color2) 21%, transparent);
     color: var(--color3);
     border-color: var(--color2);
-    width: 12em;
+    width: clamp(145px, 17vw, 200px);
+}
+
+#who-btn:hover .fas {
+    left: 10%;
 }
 
 #who-btn:hover::after {
@@ -135,8 +148,8 @@ span#and {
 }
 
 #photo {
-    width: 350px;
-    height: 350px;
+    width: clamp(280px, 45vw, 350px);
+    aspect-ratio: 1;
     border-radius: 50%;
     -o-object-fit: cover;
     object-fit: cover;
