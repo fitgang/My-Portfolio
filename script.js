@@ -6,7 +6,7 @@ const observer = new IntersectionObserver(entries => {
             query = '#get-in-touch';
             className = 'vibrate';
             break;
-        case "slide-wrapper":
+        case "about-me":
             query = '.slides';
             className = 'slide-in-view';
             break;
@@ -22,5 +22,28 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 
-observer.observe(document.querySelector('#portfolio'));
-observer.observe(document.querySelector('#slide-wrapper'));
+// observer.observe(document.querySelector('#portfolio'));
+observer.observe(document.querySelector('#about-me'));
+
+// INTERACTIVITY WITH THE CUBE  
+
+// aligns the cube to show the required element
+function alignCube(index) {
+    const cube = document.querySelector(".projects-cube"); // the cube
+    const className = `project-${index}`; // css class to align the cube
+    if (cube.classList.contains(className)) return;
+    const projects = document.querySelectorAll(".projects");
+
+    // removing useless classes
+    for (let i = 0; i < projects.length; i++) {
+        if (cube.classList.contains(`project-${i}`)) cube.classList.remove(`project-${i}`);
+    }
+
+    // adding the required class to the cube
+    cube.classList.add(className);
+}
+
+const nums = document.querySelectorAll(".serial-num");
+nums.forEach((n, i) => {
+    n.addEventListener("click", () => alignCube(i));
+});
