@@ -17,11 +17,6 @@
     <title>Ayush Gupta</title>
 </head>
 
-<!-- TODO 
-    1. ADD A GOOGLE MAP TO ABOUT ME SECTION 
-    2. work on intersection observer API
-    3. work on adding interactivity on mouse movement in the home section-->
-
 <body>
     <header class="header">
         <nav>
@@ -36,7 +31,7 @@
     </header>
     <section class="flex sections" id="home">
         <section id="ideology" title="My ideology">
-            <p id="three-words" title="Mindset, application and patience.">
+            <p id="three-words">
                 <span>Mindset</span>
                 <span>Application</span>
                 <span id="and">and</span>
@@ -61,14 +56,9 @@
                 Delhi, India, in my 3<sup>rd</sup> year of graduation. I am an active guy and a big fan of science fiction movies (Interstellar just blew my mind). I can speak english quite well and try to talk in hindi more (if you can understand), शुद्ध
                 हिंदी not hinglish and I workout 5 days a week.</p>
         </section>
-
-        <!-- TODO
-             to add a google map 
-            <section></section> -->
-
         <a href="#portfolio" id="see-my-work" title="click to view" class="slides">See My Work</a>
     </section>
-    <section class="sections grid" id="portfolio">
+    <section class="sections" id="portfolio">
         <h2>MY PORTFOLIO</h2>
         <section class="projects-cube flex">
             <section class="projects flex">
@@ -102,7 +92,7 @@
                 <p class="description">Coming Soon...</p>
             </section>
         </section>
-        <div>
+        <div id="cube-nav" title="click to navigate through the cube">
             <div class="serial-num flex">1</div>
             <div class="serial-num flex">2</div>
             <div class="serial-num flex">3</div>
@@ -110,7 +100,27 @@
             <div class="serial-num flex">5</div>
             <div class="serial-num flex">6</div>
         </div>
-        <a href="#learning" id="my-sources" title="click to view">MY Sources</a>
+        <a href="#learning" id="my-sources" class="flex" title="click to view">MY Sources</a>
+    </section>
+    <section id="learning" class="sections">
+        <h2>
+            <span>where</span>
+            <span>i</span>
+            <span>learn</span>
+        </h2>
+        <p>I learnt about the web, so far, from the web through my laptop at my home. I begin around September 2020. Google and Youtube are the vast libraries from where I got all the information. I was pretty lazy in the beginning, just sitting for an hour
+            on the laptop coding was exhausting, but now am better at it.</p>
+
+        <p> Most of my learnings are from <a href="https://www.freecodecamp.org/" id="fcc" title="click to view website" target="_blank">freecodecamp</a> and traversy media on youtube. I regularly read content on w3schools and MDN. And I find searching on
+            google as a soft skill for developers.</p>
+
+        <ul id="cert-links">
+            Following are some of the certifications I did -
+            <li><a href="https://www.freecodecamp.org/certification/acoderg/javascript-algorithms-and-data-structures" target="_blank">JavaScript</a></li>
+            <li><a href="doc/coursera_html_cert.pdf" target="_blank">HTML5</a></li>
+            <li><a href="doc/coursera_css_cert.pdf" target="_blank">CSS3</a></li>
+        </ul>
+        <a href="#contact" id="say-hello">Say Hello</a>
     </section>
     <footer id="contact">
         <section>
@@ -119,7 +129,6 @@
                 <li>
                     <a href="https://www.linkedin.com/in/ayush-gupta-0b01691b3/" target="_blank" class="flex">LinkedIn <i class="fab fa-linkedin-in"></i></a>
                 </li>
-                <li><a href="mailto:guptaayush06348@gmail.com" class="flex">Email <i class="far fa-envelope"></i></a></li>
                 <li>
                     <a href="https://twitter.com/calic0de" target="_blank" class="flex">Twitter <i class="fab fa-twitter"></i></a>
                 </li>
