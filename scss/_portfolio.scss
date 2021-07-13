@@ -1,0 +1,194 @@
+#portfolio {
+    display: grid;
+    grid-template-columns: 130px 1fr 150px;
+    padding: 0;
+    background: var(--color1);
+    color: var(--color2);
+    h2 {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 5rem;
+    }
+    @include mq(700px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+            writing-mode: initial;
+            transform: none;
+            font-size: 3.5rem;
+        }
+    }
+}
+
+.projects-cube {
+    width: calc(var(--width) * 3 /2);
+    height: calc(var(--width) * 3 /2);
+    margin: 6rem 0;
+    place-self: center;
+    transform-style: preserve-3d;
+    @include mq(700px) {
+        width: var(--width);
+        height: var(--width);
+    }
+}
+
+
+/*.rotate {
+    animation: rotate3d 10s linear infinite;
+}
+
+@keyframes rotate3d {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) translateZ(var(--absValue));
+    }
+    50% {
+        transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg) translateZ(var(--absValue));
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(720deg) translateZ(var(--absValue));
+    }
+}*/
+
+.projects {
+    position: absolute;
+    border: 1px solid var(--color3);
+    width: var(--width);
+    height: var(--width);
+    background: var(--color1);
+    color: var(--color3);
+    transform-style: preserve-3d;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color2);
+        transform: rotateY(180deg);
+    }
+}
+
+.projects:nth-child(1) {
+    transform: translateZ(calc(var(--absValue) * 2 * -1)) rotateY(180deg);
+}
+
+.projects:nth-child(2) {
+    transform: translateZ(calc(var(--absValue) * -1)) translateY(var(--absValue)) rotateX(-90deg);
+}
+
+.projects:nth-child(3) {
+    transform: translateZ(calc(var(--absValue) * -1)) translateY(calc(var(--absValue) * -1)) rotateX(90deg);
+}
+
+.projects:nth-child(4) {
+    transform: translateZ(calc(var(--absValue) * -1)) translateX(var(--absValue)) rotateY(90deg);
+}
+
+.projects:nth-child(5) {
+    transform: translateZ(calc(var(--absValue) * -1)) translateX(calc(var(--absValue) * -1)) rotateY(-90deg) rotateZ(180deg);
+}
+
+.projects:nth-child(6) {
+    transform: rotateZ(180deg);
+}
+
+.name {
+    font-size: 1.5em;
+    width: min-content;
+}
+
+.name::first-letter {
+    font-size: 1.3em;
+}
+
+.description {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding: 1% 5%;
+    font-size: 18px;
+    line-height: 28px;
+    word-spacing: 4px;
+    background: var(--color1);
+    color: var(--color2);
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: 0.5s ease-in-out 0.2s;
+}
+
+.show-description {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.project-links {
+    display: block;
+    color: blue;
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+    &:visited {
+        color: purple;
+    }
+    &:active {
+        color: red;
+    }
+}
+
+#cube-nav {
+    @include mq(700px) {
+        width: 50%;
+    }
+}
+
+.serial-num {
+    height: calc(100%/6);
+    border: 1px solid var(--color2);
+    border-top: 0;
+    font-size: 3rem;
+    background: var(--color1);
+    &:hover,
+    &:focus,
+    &:active {
+        filter: drop-shadow(2px 4px 6px black);
+    }
+}
+
+.serial-num:nth-child(2n+1) {
+    color: var(--color1);
+    background: var(--color2);
+}
+
+#my-sources {
+    grid-column: 1 / 4;
+    place-self: center;
+    height: 3rem;
+    width: 10rem;
+    border: 6px double;
+    margin: 3rem 0 2rem 0;
+    position: relative;
+    transition: 0.3s ease;
+    color: var(--color3);
+    &::after {
+        content: '';
+        width: 8rem;
+        height: 3px;
+        border-radius: 100%;
+        background: hsla(0, 0%, 0%, 0.3);
+        position: absolute;
+        bottom: -1.2rem;
+        transition: 0.3s ease;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        transform: translateY(-20px);
+        &::after {
+            width: 0;
+        }
+    }
+}

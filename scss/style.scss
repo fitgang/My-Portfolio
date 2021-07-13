@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@400;600;700;900&display=swap');
+@mixin mq($size) {
+    @media screen and (max-width: $size) {
+        @content;
+    }
+}
+
+:root {
+    --color1: #fff;
+    --color2: #a06c20;
+    --color3: #006400;
+    --width: 200px;
+    --absValue: calc(var(--width)*3/4);
+    @include mq(700px) {
+        --absValue: calc(var(--width)/2);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+}
+
+.grid {
+    display: grid;
+}
+
+.column {
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#three-words span,
+#who-am-i span,
+#portfolio h2,
+#learning h2 span {
+    font-family: 'Oswald', sans-serif;
+}
+
+.header {
+    display: none;
+}
+
+.sections {
+    padding: 1em;
+    @include mq(350px) {
+        padding: 1px;
+    }
+}
+
+#home {
+    height: 100vh;
+    min-height: 500px;
+    color: var(--color3);
+    background: var(--color1);
+    justify-content: space-evenly;
+    @include mq(950px) {
+        height: initial;
+        min-height: 100vh;
+    }
+}
+
+#ideology {
+    max-width: 500px;
+    min-width: 300px;
+    margin-top: 1em;
+}
+
+#three-words {
+    font-size: clamp(60px, 9vw, 100px);
+    font-weight: 900;
+    span {
+        display: block;
+        line-height: 95%;
+    }
+    span#and {
+        font-size: 0.5em;
+        padding-top: 3%;
+    }
+}
+
+#three-words span#and,
+#who-am-i span:last-child,
+#portfolio h2,
+.name,
+#learning h2 span:nth-child(2) {
+    font-weight: 100;
+}
+
+#explanation,
+#who-am-i p {
+    color: var(--color3);
+    margin-top: 0.5em;
+    font-size: clamp(13px, 1.4vw, 16px);
+    line-height: 1.3em;
+    word-spacing: 1px;
+    letter-spacing: 0.3px;
+}
+
+#who-btn {
+    width: clamp(36px, 5.5vw, 64px);
+    height: clamp(36px, 5.5vw, 64px);
+    color: var(--color1);
+    border: 3px solid var(--color2);
+    border-radius: 100px;
+    margin: 2em auto auto 2em;
+    background: linear-gradient(245deg, var(--color2) 21%, transparent);
+    position: relative;
+    transition: 300ms ease;
+    .fas {
+        font-size: clamp(15px, 2.5vw, 28px);
+        position: absolute;
+        left: 27%;
+        transition: inherit;
+    }
+    &::after {
+        content: "About me";
+        position: absolute;
+        right: 1em;
+        opacity: 0;
+        font-weight: 600;
+    }
+}
+
+#who-btn:hover,
+#who-btn:focus {
+    width: clamp(145px, 17vw, 200px);
+    .fas {
+        left: 10%;
+    }
+    &::after {
+        transition: opacity 0.5s ease-in;
+        opacity: 1;
+    }
+}
+
+#photo {
+    width: clamp(280px, 45vw, 350px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid;
+    padding: 0.1em;
+    margin: 1em;
+}
+
+#about-me {
+    color: var(--color1);
+    background: var(--color3);
+    min-height: 100vh;
+}
+
+#who-am-i {
+    margin: 4em 0;
+    h2 {
+        min-width: 308px;
+        font-size: 9rem;
+        letter-spacing: -5px;
+        line-height: 90%;
+        text-align: right;
+    }
+    span {
+        display: inline-block;
+    }
+    span:last-child {
+        font-size: 2.1em;
+        margin-left: -0.14em;
+    }
+    p {
+        display: inline-block;
+        color: var(--color1);
+        width: clamp(255px, 35%, 415px);
+        line-height: 150%;
+    }
+}
+
+#see-my-work {
+    padding: 1rem;
+    margin: 1rem;
+    position: relative;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+    }
+    &::before {
+        border-width: 4px 4px 0 0;
+        transition: width 0.3s ease, height 0.3s 0.3s ease;
+    }
+    &::after {
+        border-width: 0 0 4px 4px;
+        transition: width 0.3s 0.3s ease, height 0.3s ease;
+    }
+    &:hover {
+        &::before,
+        &::after {
+            width: 0;
+            height: 0;
+        }
+        &::before {
+            transition: width 0.3s 0.3s ease, height 0.3s ease;
+        }
+        &::after {
+            transition: width 0.3s ease, height 0.3s 0.3s ease;
+        }
+    }
+}
+
+@import 'portfolio';
+@import 'learning';
+#contact {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 1em 3em;
+    font-size: 1.2em;
+    ul {
+        list-style-type: none;
+        margin: 2em auto;
+        text-align: center;
+        li {
+            width: fit-content;
+            margin: auto;
+            margin-bottom: 0.5em;
+            i {
+                font-size: 1.5em;
+                padding-left: 0.4em;
+            }
+        }
+        li:last-child {
+            margin-bottom: auto;
+        }
+    }
+    section:last-child {
+        text-align: right;
+    }
+    a {
+        position: relative;
+        transition: 0.5s ease;
+        flex-direction: row;
+        padding: 0.3em;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color3);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+    }
+    a:hover {
+        color: var(--color1);
+        &::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+    }
+}
