@@ -5,7 +5,6 @@
     row-gap: 5px;
     background: var(--color3);
     color: var(--color1);
-    min-height: 100vh;
     @include mq(750px) {
         display: flex;
         flex-direction: column;
@@ -13,7 +12,7 @@
     }
     h2 {
         margin-top: 1em;
-        grid-row: 1/6;
+        grid-row: 1/7;
         span {
             display: block;
             font-size: 7rem;
@@ -35,10 +34,13 @@
             }
         }
     }
-    p {
+    p,
+    h4 {
         position: relative;
-        left: -4em;
         top: 2em;
+    }
+    p {
+        left: -4em;
         word-spacing: 2px;
         letter-spacing: 0.2px;
         line-height: 130%;
@@ -55,6 +57,9 @@
             }
         }
     }
+    h4 {
+        grid-row: 4/5;
+    }
 }
 
 #fcc,
@@ -63,10 +68,13 @@
 }
 
 #cert-links {
-    grid-row: 4/5;
+    grid-row: 5/6;
     position: relative;
     top: 2em;
     list-style-position: inside;
+    ul {
+        list-style-position: inside;
+    }
     @include mq(750px) {
         margin: 0 4px 0 4px;
     }
@@ -74,13 +82,14 @@
 
 @media screen and (max-width:750px) {
     #learning p,
+    #learning h4,
     #cert-links {
         position: initial;
     }
 }
 
 #say-hello {
-    grid-area: 6/1/7/3;
+    grid-area: 7/1/8/3;
     place-self: center;
     padding: 0.5em 2em;
     border: 7px ridge;

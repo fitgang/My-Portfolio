@@ -25,6 +25,43 @@ const observer = new IntersectionObserver(entries => {
 // observer.observe(document.querySelector('#portfolio'));
 observer.observe(document.querySelector('#about-me'));
 
+//
+// SHOW NAV BUTTON ON SLIDE UP AND NAV MENU ON NAV BUTTON CLICK
+
+const navBtn = document.querySelector(".nav-btn");
+let sp1 = 0; // initial scrolltop value when the users scrolls
+
+function showNavBtn(event) {
+    if (sp1 && document.documentElement.scrollTop - sp1 < 0 && !navBtn.classList.contains("show-nav")) {
+        navBtn.classList.add("show-nav");
+        setTimeout(() => {
+            navBtn.classList.remove("show-nav");
+            sp1 = 0;
+        }, 6000);
+    } else sp1 = document.documentElement.scrollTop;
+}
+
+function removeHeader() {
+    const menu = document.querySelector(".header");
+    menu.classList.remove("show-header");
+    const links = menu.children[1].children;
+    const returnBtn = menu.querySelector("#return");
+    [returnBtn, ...links].forEach(e => e.removeEventListener("click", removeHeader))
+}
+
+function showHeader() {
+    const menu = document.querySelector(".header");
+    menu.classList.add("show-header");
+    const links = menu.children[1].children;
+    const returnBtn = menu.querySelector("#return");
+    [returnBtn, ...links].forEach(e => e.addEventListener("click", removeHeader))
+}
+
+// EVENT listener
+document.addEventListener("scroll", showNavBtn);
+navBtn.addEventListener("click", showHeader);
+
+//
 // INTERACTIVITY WITH THE CUBE  
 
 // DOM elements and stats

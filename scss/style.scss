@@ -38,10 +38,6 @@ body {
     flex-flow: wrap;
 }
 
-.grid {
-    display: grid;
-}
-
 .column {
     flex-direction: column;
 }
@@ -51,6 +47,33 @@ a {
     color: inherit;
 }
 
+.nav-btn {
+    z-index: 2;
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    border: none;
+    background: #ff0d0d;
+    color: #fff;
+    border-radius: 33px;
+    padding: 0.4em;
+    box-shadow: 0px 0px 6px 0px black;
+    transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), top 1s ease;
+    i {
+        font-size: 2.2rem;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        transform: scale(1.2) rotate(360deg);
+    }
+}
+
+.show-nav {
+    top: 50px;
+}
+
+@import 'header';
 #three-words span,
 #who-am-i span,
 #portfolio h2,
@@ -58,11 +81,8 @@ a {
     font-family: 'Oswald', sans-serif;
 }
 
-.header {
-    display: none;
-}
-
 .sections {
+    min-height: 100vh;
     padding: 1em;
     @include mq(350px) {
         padding: 1px;
@@ -70,15 +90,10 @@ a {
 }
 
 #home {
-    height: 100vh;
-    min-height: 500px;
+    min-height: 100vh;
     color: var(--color3);
     background: var(--color1);
     justify-content: space-evenly;
-    @include mq(950px) {
-        height: initial;
-        min-height: 100vh;
-    }
 }
 
 #ideology {
@@ -165,124 +180,7 @@ a {
     margin: 1em;
 }
 
-#about-me {
-    color: var(--color1);
-    background: var(--color3);
-    min-height: 100vh;
-}
-
-#who-am-i {
-    margin: 4em 0;
-    h2 {
-        min-width: 308px;
-        font-size: 9rem;
-        letter-spacing: -5px;
-        line-height: 90%;
-        text-align: right;
-    }
-    span {
-        display: inline-block;
-    }
-    span:last-child {
-        font-size: 2.1em;
-        margin-left: -0.14em;
-    }
-    p {
-        display: inline-block;
-        color: var(--color1);
-        width: clamp(255px, 35%, 415px);
-        line-height: 150%;
-    }
-}
-
-#see-my-work {
-    padding: 1rem;
-    margin: 1rem;
-    position: relative;
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-style: solid;
-    }
-    &::before {
-        border-width: 4px 4px 0 0;
-        transition: width 0.3s ease, height 0.3s 0.3s ease;
-    }
-    &::after {
-        border-width: 0 0 4px 4px;
-        transition: width 0.3s 0.3s ease, height 0.3s ease;
-    }
-    &:hover {
-        &::before,
-        &::after {
-            width: 0;
-            height: 0;
-        }
-        &::before {
-            transition: width 0.3s 0.3s ease, height 0.3s ease;
-        }
-        &::after {
-            transition: width 0.3s ease, height 0.3s 0.3s ease;
-        }
-    }
-}
-
+@import 'about';
 @import 'portfolio';
 @import 'learning';
-#contact {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    padding: 1em 3em;
-    font-size: 1.2em;
-    ul {
-        list-style-type: none;
-        margin: 2em auto;
-        text-align: center;
-        li {
-            width: fit-content;
-            margin: auto;
-            margin-bottom: 0.5em;
-            i {
-                font-size: 1.5em;
-                padding-left: 0.4em;
-            }
-        }
-        li:last-child {
-            margin-bottom: auto;
-        }
-    }
-    section:last-child {
-        text-align: right;
-    }
-    a {
-        position: relative;
-        transition: 0.5s ease;
-        flex-direction: row;
-        padding: 0.3em;
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--color3);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-        }
-    }
-    a:hover {
-        color: var(--color1);
-        &::after {
-            transform-origin: left;
-            transform: scaleX(1);
-        }
-    }
-}
+@import 'contact';

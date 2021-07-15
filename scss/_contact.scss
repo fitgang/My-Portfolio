@@ -1,0 +1,44 @@
+#contact {
+    padding: 1em 0;
+    h2 {
+        font-size: 2.1em;
+    }
+    ul {
+        list-style-type: none;
+        font-size: 1.1em;
+        margin: 0.5em 0 1em 0;
+        li i {
+            font-size: 1.5em;
+            padding-left: 0.4em;
+        }
+    }
+    a {
+        position: relative;
+        transition: 0.5s ease;
+        flex-direction: row;
+        padding: 0.3em;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color3);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+    }
+    a:hover {
+        color: var(--color1);
+        &::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+    }
+    #source-code {
+        margin: 0.5em 0;
+    }
+}
