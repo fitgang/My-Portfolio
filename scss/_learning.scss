@@ -3,8 +3,6 @@
     grid-template-columns: 250px 490px;
     place-content: center;
     row-gap: 5px;
-    background: var(--color3);
-    color: var(--color1);
     @include mq(750px) {
         display: flex;
         flex-direction: column;

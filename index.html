@@ -18,9 +18,9 @@
 </head>
 
 <body>
-    <button type="button" class="nav-btn"><i class="far fa-compass"></i></button>
+    <button type="button" class="nav-btn" title="open navigation"><i class="far fa-compass"></i></button>
     <header class="header flex column">
-        <button type="button" id="return"><i class="fas fa-long-arrow-alt-right"></i></button>
+        <button type="button" id="return" title="exit navigation"><i class="fas fa-long-arrow-alt-right"></i></button>
         <nav>
             <a href="#home">Home</a>
             <a href="#about-me">About</a>
@@ -30,7 +30,7 @@
         </nav>
     </header>
     <section class="flex sections" id="home">
-        <section id="ideology" title="My ideology">
+        <section id="ideology">
             <p id="three-words">
                 <span>Mindset</span>
                 <span>Application</span>
@@ -40,15 +40,15 @@
             <p id="explanation">
                 The three things on which I always work on, either its developing a website or starting a new exercise habit. Apply with a positive mindset, fail, iterate and be patient for better results.
             </p>
-            <a href="#about-me" id="who-btn" class="flex" title="click to view">
+            <a href="#about-me" id="about-btn" class="flex" title="click to view">
                 <i class="fas fa-user"></i>
             </a>
         </section>
-        <img src="" id="photo" alt="Ayush Gupta" title="My Photo (Ayush Gupta)">
+        <img src="img/my-photo.jpg" id="photo" alt="Ayush Gupta" title="Ayush Gupta">
     </section>
-    <section class="sections flex column" id="about-me" title="about-me">
+    <section class="sections flex column" id="about-me">
         <section id="who-am-i" class="flex">
-            <h2 class="slides">
+            <h2>
                 <span>WHO<br>AM</span>
                 <span>I</span>
             </h2>
@@ -56,7 +56,7 @@
                 Delhi, India, in my 3<sup>rd</sup> year of graduation. I am an active guy and a big fan of science fiction movies (Interstellar just blew my mind). I can speak english quite well and try to talk in hindi more (if you can understand), शुद्ध
                 हिंदी not hinglish and I workout 5 days a week.</p>
         </section>
-        <a href="#portfolio" id="see-my-work" title="click to view" class="slides">See My Work</a>
+        <a href="#portfolio" id="see-my-work" title="click to view">See My Work</a>
     </section>
     <section class="sections" id="portfolio">
         <h2>MY PORTFOLIO</h2>
@@ -92,14 +92,14 @@
                 <p class="description">Coming Soon...</p>
             </section>
         </section>
-        <div id="cube-nav" title="click to navigate through the cube">
+        <nav id="cube-nav" title="click to navigate through the cube">
             <div class="serial-num flex">1</div>
             <div class="serial-num flex">2</div>
             <div class="serial-num flex">3</div>
             <div class="serial-num flex">4</div>
             <div class="serial-num flex">5</div>
             <div class="serial-num flex">6</div>
-        </div>
+        </nav>
         <a href="#learning" id="my-sources" class="flex" title="click to view">MY Sources</a>
     </section>
     <section id="learning" class="sections">

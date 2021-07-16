@@ -2,8 +2,7 @@
     display: grid;
     grid-template-columns: 130px 1fr 150px;
     padding: 0;
-    background: var(--color1);
-    color: var(--color2);
+    color: var(--color1);
     h2 {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
@@ -94,12 +93,11 @@
     font-size: 18px;
     line-height: 28px;
     word-spacing: 4px;
-    background: var(--color1);
-    color: var(--color2);
+    background: inherit;
     transform-origin: top;
     transform: scaleY(0);
     opacity: 0;
-    transition: 0.5s ease-in-out 0.2s;
+    transition: 0.5s ease-in-out 0.7s;
 }
 
 .show-description {
@@ -109,13 +107,12 @@
 
 .project-links {
     display: block;
-    color: blue;
     &:hover,
     &:focus {
         text-decoration: underline;
     }
     &:visited {
-        color: purple;
+        color: hsl(300, 100%, 75%);
     }
     &:active {
         color: red;
@@ -128,23 +125,30 @@
     }
 }
 
+.serial-num,
+#my-sources {
+    background: var(--color1);
+    color: var(--color3);
+}
+
+.serial-num:nth-child(2n) {
+    color: var(--color1);
+    background: var(--color3);
+}
+
 .serial-num {
     height: calc(100%/6);
-    border: 1px solid var(--color2);
+    border: 1px solid var(--color1);
     border-top: 0;
     font-size: 3rem;
-    background: var(--color1);
+    opacity: 0;
+    transform-origin: top;
     &:hover,
     &:focus,
     &:active {
         filter: drop-shadow(2px 4px 6px black);
         cursor: pointer;
     }
-}
-
-.serial-num:nth-child(2n+1) {
-    color: var(--color1);
-    background: var(--color2);
 }
 
 #my-sources {
@@ -156,7 +160,6 @@
     margin: 3rem 0 2rem 0;
     position: relative;
     transition: 0.3s ease;
-    color: var(--color3);
     &::after {
         content: '';
         width: 8rem;
@@ -174,5 +177,37 @@
         &::after {
             width: 0;
         }
+    }
+}
+
+.view-portfolio {
+    .serial-num:nth-child(1) {
+        animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) forwards;
+    }
+    .serial-num:nth-child(2) {
+        animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 0.7s forwards;
+    }
+    .serial-num:nth-child(3) {
+        animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 1.4s forwards;
+    }
+    .serial-num:nth-child(4) {
+        animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.1s forwards;
+    }
+    .serial-num:nth-child(5) {
+        animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.8s forwards;
+    }
+    .serial-num:nth-child(6) {
+        animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 3.5s forwards;
+    }
+    // transition: transform 1s cubic-bezier(0.13, 0.03, 0.27, 1.55);
+}
+
+@keyframes drop {
+    from {
+        transform: rotateX(180deg)
+    }
+    to {
+        transform: rotateX(0);
+        opacity: 1;
     }
 }

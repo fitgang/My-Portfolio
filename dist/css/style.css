@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@400;600;700;900&display=swap");
 :root {
-    --color1: #fff;
-    --color2: #a06c20;
-    --color3: #006400;
+    --color1: #344059;
+    --color2: #A6796F;
+    --color3: #E9F1F2;
     --width: 200px;
     --absValue: calc(var(--width)*3/4);
 }
@@ -26,6 +26,7 @@ html {
 
 body {
     overflow-x: hidden;
+    background: var(--color3);
 }
 
 .flex {
@@ -143,10 +144,18 @@ nav a:active {
     }
 }
 
-#home {
-    min-height: 100vh;
+#home,
+#learning {
     color: var(--color3);
     background: var(--color1);
+}
+
+#about-me,
+#contact {
+    color: var(--color2);
+}
+
+#home {
     justify-content: space-evenly;
 }
 
@@ -164,6 +173,16 @@ nav a:active {
 #three-words span {
     display: block;
     line-height: 95%;
+    opacity: 0;
+}
+
+#three-words span:first-child {
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+}
+
+#three-words span:nth-child(2) {
+    transform: translateX(-100%);
 }
 
 #three-words span#and {
@@ -183,32 +202,34 @@ nav a:active {
 #who-am-i p {
     color: var(--color3);
     margin-top: 0.5em;
-    font-size: clamp(13px, 1.4vw, 16px);
+    font-size: clamp(14px, 1.53vw, 16px);
     line-height: 1.3em;
     word-spacing: 1px;
     letter-spacing: 0.3px;
+    opacity: 0;
 }
 
-#who-btn {
+#about-btn {
     width: clamp(36px, 5.5vw, 64px);
     height: clamp(36px, 5.5vw, 64px);
-    color: var(--color1);
-    border: 3px solid var(--color2);
+    color: var(--color2);
+    border: 3px solid var(--color3);
     border-radius: 100px;
     margin: 2em auto auto 2em;
-    background: linear-gradient(245deg, var(--color2) 21%, transparent);
+    background: var(--color3);
     position: relative;
     transition: 300ms ease;
+    opacity: 0;
 }
 
-#who-btn .fas {
+#about-btn .fas {
     font-size: clamp(15px, 2.5vw, 28px);
     position: absolute;
     left: 27%;
     transition: inherit;
 }
 
-#who-btn::after {
+#about-btn::after {
     content: "About me";
     position: absolute;
     right: 1em;
@@ -216,18 +237,18 @@ nav a:active {
     font-weight: 600;
 }
 
-#who-btn:hover,
-#who-btn:focus {
+#about-btn:hover,
+#about-btn:focus {
     width: clamp(145px, 17vw, 200px);
 }
 
-#who-btn:hover .fas,
-#who-btn:focus .fas {
+#about-btn:hover .fas,
+#about-btn:focus .fas {
     left: 10%;
 }
 
-#who-btn:hover::after,
-#who-btn:focus::after {
+#about-btn:hover::after,
+#about-btn:focus::after {
     transition: opacity 0.5s ease-in;
     opacity: 1;
 }
@@ -241,11 +262,48 @@ nav a:active {
     border: 5px solid;
     padding: 0.1em;
     margin: 1em;
+    opacity: 0;
 }
 
-#about-me {
-    color: var(--color1);
-    background: var(--color3);
+.view-home #three-words span {
+    opacity: 1;
+}
+
+.view-home #three-words span:first-child {
+    transform: rotate(0deg);
+    transition: 0.3s ease-out;
+}
+
+.view-home #three-words span:nth-child(2) {
+    transform: translateX(0);
+    transition: 0.4s ease 0.4s;
+}
+
+.view-home #three-words span:nth-child(3) {
+    transition: 0.1s ease 0.9s;
+}
+
+.view-home #three-words span:last-child {
+    transition: 0.8s ease-in 1.1s;
+}
+
+.view-home #explanation,
+.view-home #about-btn,
+.view-home #photo {
+    -webkit-animation: op 0.8s ease 2s forwards;
+    animation: op 0.8s ease 2s forwards;
+}
+
+@-webkit-keyframes op {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes op {
+    to {
+        opacity: 1;
+    }
 }
 
 #who-am-i {
@@ -258,6 +316,7 @@ nav a:active {
     letter-spacing: -5px;
     line-height: 90%;
     text-align: right;
+    opacity: 0;
 }
 
 #who-am-i span {
@@ -271,9 +330,10 @@ nav a:active {
 
 #who-am-i p {
     display: inline-block;
-    color: var(--color1);
+    color: inherit;
     width: clamp(255px, 35%, 415px);
     line-height: 150%;
+    transform: translateX(100%);
 }
 
 #see-my-work {
@@ -317,14 +377,50 @@ nav a:active {
     transition: width 0.3s ease, height 0.3s 0.3s ease;
 }
 
+section.view-about #who-am-i h2 {
+    -webkit-animation: titleAnim 1s ease both;
+    animation: titleAnim 1s ease both;
+}
+
+section.view-about #who-am-i p {
+    transform: translateX(0);
+    opacity: 1;
+    transition: 0.8s ease-in-out 1s;
+}
+
+@-webkit-keyframes titleAnim {
+    0% {
+        transform: translateY(100%) rotateX(30deg) scale(0);
+        transform-origin: 50% 100%;
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotateX(0) scale(1);
+        transform-origin: 50% -1400px;
+        opacity: 1;
+    }
+}
+
+@keyframes titleAnim {
+    0% {
+        transform: translateY(100%) rotateX(30deg) scale(0);
+        transform-origin: 50% 100%;
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotateX(0) scale(1);
+        transform-origin: 50% -1400px;
+        opacity: 1;
+    }
+}
+
 #portfolio {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 130px 1fr 150px;
     grid-template-columns: 130px 1fr 150px;
     padding: 0;
-    background: var(--color1);
-    color: var(--color2);
+    color: var(--color1);
 }
 
 #portfolio h2 {
@@ -429,12 +525,11 @@ nav a:active {
     font-size: 18px;
     line-height: 28px;
     word-spacing: 4px;
-    background: var(--color1);
-    color: var(--color2);
+    background: inherit;
     transform-origin: top;
     transform: scaleY(0);
     opacity: 0;
-    transition: 0.5s ease-in-out 0.2s;
+    transition: 0.5s ease-in-out 0.7s;
 }
 
 .show-description {
@@ -444,7 +539,6 @@ nav a:active {
 
 .project-links {
     display: block;
-    color: blue;
 }
 
 .project-links:hover,
@@ -453,7 +547,7 @@ nav a:active {
 }
 
 .project-links:visited {
-    color: purple;
+    color: #ff80ff;
 }
 
 .project-links:active {
@@ -466,12 +560,24 @@ nav a:active {
     }
 }
 
+.serial-num,
+#my-sources {
+    background: var(--color1);
+    color: var(--color3);
+}
+
+.serial-num:nth-child(2n) {
+    color: var(--color1);
+    background: var(--color3);
+}
+
 .serial-num {
     height: calc(100%/6);
-    border: 1px solid var(--color2);
+    border: 1px solid var(--color1);
     border-top: 0;
     font-size: 3rem;
-    background: var(--color1);
+    opacity: 0;
+    transform-origin: top;
 }
 
 .serial-num:hover,
@@ -480,11 +586,6 @@ nav a:active {
     -webkit-filter: drop-shadow(2px 4px 6px black);
     filter: drop-shadow(2px 4px 6px black);
     cursor: pointer;
-}
-
-.serial-num:nth-child(2n+1) {
-    color: var(--color1);
-    background: var(--color2);
 }
 
 #my-sources {
@@ -498,7 +599,6 @@ nav a:active {
     margin: 3rem 0 2rem 0;
     position: relative;
     transition: 0.3s ease;
-    color: var(--color3);
 }
 
 #my-sources::after {
@@ -524,6 +624,56 @@ nav a:active {
     width: 0;
 }
 
+.view-portfolio .serial-num:nth-child(1) {
+    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) forwards;
+    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) forwards;
+}
+
+.view-portfolio .serial-num:nth-child(2) {
+    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 0.7s forwards;
+    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 0.7s forwards;
+}
+
+.view-portfolio .serial-num:nth-child(3) {
+    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 1.4s forwards;
+    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 1.4s forwards;
+}
+
+.view-portfolio .serial-num:nth-child(4) {
+    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.1s forwards;
+    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.1s forwards;
+}
+
+.view-portfolio .serial-num:nth-child(5) {
+    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.8s forwards;
+    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.8s forwards;
+}
+
+.view-portfolio .serial-num:nth-child(6) {
+    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 3.5s forwards;
+    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 3.5s forwards;
+}
+
+@-webkit-keyframes drop {
+    from {
+        transform: rotateX(180deg);
+    }
+    to {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes drop {
+    from {
+        transform: rotateX(180deg);
+    }
+    to {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+}
+
 #learning {
     display: -ms-grid;
     display: grid;
@@ -531,8 +681,6 @@ nav a:active {
     grid-template-columns: 250px 490px;
     place-content: center;
     row-gap: 5px;
-    background: var(--color3);
-    color: var(--color1);
 }
 
 @media screen and (max-width: 750px) {
@@ -703,7 +851,7 @@ nav a:active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--color3);
+    background: var(--color2);
     z-index: -1;
     transform: scaleX(0);
     transform-origin: right;
@@ -711,7 +859,7 @@ nav a:active {
 }
 
 #contact a:hover {
-    color: var(--color1);
+    color: var(--color3);
 }
 
 #contact a:hover::after {

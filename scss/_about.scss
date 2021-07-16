@@ -1,8 +1,3 @@
-#about-me {
-    color: var(--color1);
-    background: var(--color3);
-}
-
 #who-am-i {
     margin: 4em 0;
     h2 {
@@ -11,6 +6,7 @@
         letter-spacing: -5px;
         line-height: 90%;
         text-align: right;
+        opacity: 0;
     }
     span {
         display: inline-block;
@@ -21,9 +17,10 @@
     }
     p {
         display: inline-block;
-        color: var(--color1);
+        color: inherit;
         width: clamp(255px, 35%, 415px);
         line-height: 150%;
+        transform: translateX(100%);
     }
 }
 
@@ -61,5 +58,31 @@
         &::after {
             transition: width 0.3s ease, height 0.3s 0.3s ease;
         }
+    }
+}
+
+section.view-about {
+    #who-am-i {
+        h2 {
+            animation: titleAnim 1s ease both;
+        }
+        p {
+            transform: translateX(0);
+            opacity: 1;
+            transition: 0.8s ease-in-out 1s;
+        }
+    }
+}
+
+@keyframes titleAnim {
+    0% {
+        transform: translateY(100%) rotateX(30deg) scale(0);
+        transform-origin: 50% 100%;
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotateX(0) scale(1);
+        transform-origin: 50% -1400px;
+        opacity: 1;
     }
 }

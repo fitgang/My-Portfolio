@@ -6,9 +6,9 @@
 }
 
 :root {
-    --color1: #fff;
-    --color2: #a06c20;
-    --color3: #006400;
+    --color1: #344059;
+    --color2: #A6796F;
+    --color3: #E9F1F2;
     --width: 200px;
     --absValue: calc(var(--width)*3/4);
     @include mq(700px) {
@@ -29,6 +29,7 @@ html {
 
 body {
     overflow-x: hidden;
+    background: var(--color3);
 }
 
 .flex {
@@ -89,10 +90,18 @@ a {
     }
 }
 
-#home {
-    min-height: 100vh;
+#home,
+#learning {
     color: var(--color3);
     background: var(--color1);
+}
+
+#about-me,
+#contact {
+    color: var(--color2);
+}
+
+#home {
     justify-content: space-evenly;
 }
 
@@ -108,6 +117,14 @@ a {
     span {
         display: block;
         line-height: 95%;
+        opacity: 0;
+        &:first-child {
+            transform: rotate(-90deg);
+            transform-origin: bottom left;
+        }
+        &:nth-child(2) {
+            transform: translateX(-100%);
+        }
     }
     span#and {
         font-size: 0.5em;
@@ -127,22 +144,24 @@ a {
 #who-am-i p {
     color: var(--color3);
     margin-top: 0.5em;
-    font-size: clamp(13px, 1.4vw, 16px);
+    font-size: clamp(14px, 1.53vw, 16px);
     line-height: 1.3em;
     word-spacing: 1px;
     letter-spacing: 0.3px;
+    opacity: 0;
 }
 
-#who-btn {
+#about-btn {
     width: clamp(36px, 5.5vw, 64px);
     height: clamp(36px, 5.5vw, 64px);
-    color: var(--color1);
-    border: 3px solid var(--color2);
+    color: var(--color2);
+    border: 3px solid var(--color3);
     border-radius: 100px;
     margin: 2em auto auto 2em;
-    background: linear-gradient(245deg, var(--color2) 21%, transparent);
+    background: var(--color3);
     position: relative;
     transition: 300ms ease;
+    opacity: 0;
     .fas {
         font-size: clamp(15px, 2.5vw, 28px);
         position: absolute;
@@ -158,8 +177,8 @@ a {
     }
 }
 
-#who-btn:hover,
-#who-btn:focus {
+#about-btn:hover,
+#about-btn:focus {
     width: clamp(145px, 17vw, 200px);
     .fas {
         left: 10%;
@@ -178,6 +197,40 @@ a {
     border: 5px solid;
     padding: 0.1em;
     margin: 1em;
+    opacity: 0;
+}
+
+.view-home {
+    #three-words {
+        span {
+            opacity: 1;
+            &:first-child {
+                transform: rotate(0deg);
+                transition: 0.3s ease-out;
+            }
+            &:nth-child(2) {
+                transform: translateX(0);
+                transition: 0.4s ease 0.4s;
+            }
+            &:nth-child(3) {
+                transition: 0.1s ease 0.9s;
+            }
+            &:last-child {
+                transition: 0.8s ease-in 1.1s;
+            }
+        }
+    }
+    #explanation,
+    #about-btn,
+    #photo {
+        animation: op 0.8s ease 2s forwards
+    }
+}
+
+@keyframes op {
+    to {
+        opacity: 1;
+    }
 }
 
 @import 'about';

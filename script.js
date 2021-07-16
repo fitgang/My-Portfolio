@@ -1,29 +1,24 @@
-const observer = new IntersectionObserver(entries => {
-    const entry = entries[0];
-    let query, className;
-    switch (entry.target.id) {
-        case "portfolio":
-            query = '#get-in-touch';
-            className = 'vibrate';
-            break;
-        case "about-me":
-            query = '.slides';
-            className = 'slide-in-view';
-            break;
-    }
-    const elem = entry.target.querySelectorAll(query);
-    elem.forEach(e => {
-        if (entry.isIntersecting) {
-            e.classList.add(className);
+const observer = new IntersectionObserver(entries =>
+    entries.forEach(entry => {
+        let className;
+        switch (entry.target.id) {
+            case "home":
+                className = 'view-home';
+                break;
+            case "about-me":
+                className = 'view-about';
+                break;
+            case "portfolio":
+                className = 'view-portfolio';
+                break;
         }
+        if (entry.isIntersecting) {
+            entry.target.classList.add(className);
+            observer.unobserve(entry.target)
+        }
+    }), { threshold: 0.2 });
 
-        // We're not intersecting, so remove the class!
-        else e.classList.remove(className);
-    });
-});
-
-// observer.observe(document.querySelector('#portfolio'));
-observer.observe(document.querySelector('#about-me'));
+['#home', '#about-me', '#portfolio'].forEach(s => observer.observe(document.querySelector(s)));
 
 //
 // SHOW NAV BUTTON ON SLIDE UP AND NAV MENU ON NAV BUTTON CLICK
@@ -32,7 +27,7 @@ const navBtn = document.querySelector(".nav-btn");
 let sp1 = 0; // initial scrolltop value when the users scrolls
 
 function showNavBtn(event) {
-    if (sp1 && document.documentElement.scrollTop - sp1 < 0 && !navBtn.classList.contains("show-nav")) {
+    if (sp1 && document.documentElement.scrollTop - sp1 < -50 && !navBtn.classList.contains("show-nav")) {
         navBtn.classList.add("show-nav");
         setTimeout(() => {
             navBtn.classList.remove("show-nav");
@@ -65,7 +60,7 @@ navBtn.addEventListener("click", showHeader);
 // INTERACTIVITY WITH THE CUBE  
 
 // DOM elements and stats
-const area = document.getElementById("portfolio");
+const secP = document.getElementById("portfolio");
 let grab = false;
 
 // set the value of transform property
@@ -85,15 +80,22 @@ function rotate(event) {
         y = event.clientY;
 
     // divide the area per degree
-    const dx = Math.round(area.clientWidth / (360 * 2) * 100) / 100,
-        dy = Math.round(area.clientHeight / 360 * 100) / 100;
+    const dx = Math.round(secP.clientWidth / 900 * 100) / 100,
+        dy = Math.round(secP.clientHeight / 900 * 100) / 100;
 
     transformCube(y * dy, x * dx);
 }
 
+// sets the transition property on transform for the cube
+function setTransition(value) {
+    const cube = document.querySelector(".projects-cube");
+    cube.style.transition = value;
+}
 
 // aligns the cube to show the required element
 function alignCube(index) {
+    const rp = document.querySelectorAll(".projects")[index].querySelector(".description"); // req <p> element
+    if (rp.classList.contains("show-description")) return;
     grab = true;
     const degArray = [
         [-5, 175],
@@ -103,15 +105,22 @@ function alignCube(index) {
         [175, -85],
         [175, 185]
     ];
+    setTransition("transform 0.5s ease-in-out");
     transformCube(degArray[index][0], degArray[index][1]);
+    setTimeout(() => setTransition(""), 510);
 
-    // show the description
-    const p = document.querySelectorAll(".projects")[index].querySelector(".description"); // <p> element
-    p.classList.add("show-description");
+    // hide all the descriptions first
+    const pArr = document.querySelectorAll(".description");
+    pArr.forEach(p => {
+        if (p.classList.contains("show-description")) p.classList.remove("show-description")
+    });
+
+    // show the req description
+    rp.classList.add("show-description");
 }
 
 // EVENT LISTENERS
-area.addEventListener("mousemove", rotate);
+secP.addEventListener("mousemove", rotate);
 const nums = document.querySelectorAll(".serial-num");
 nums.forEach((n, i) => {
     n.addEventListener("click", () => alignCube(i));
