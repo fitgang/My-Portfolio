@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Lato:wght@400;600;700;900&display=swap');
 @mixin mq($size) {
     @media screen and (max-width: $size) {
         @content;
@@ -46,32 +46,6 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-}
-
-.nav-btn {
-    z-index: 2;
-    position: fixed;
-    top: -50px;
-    left: 50%;
-    border: none;
-    background: #ff0d0d;
-    color: #fff;
-    border-radius: 33px;
-    padding: 0.4em;
-    box-shadow: 0px 0px 6px 0px black;
-    transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), top 1s ease;
-    i {
-        font-size: 2.2rem;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-        transform: scale(1.2) rotate(360deg);
-    }
-}
-
-.show-nav {
-    top: 50px;
 }
 
 @import 'header';
@@ -236,3 +210,43 @@ a {
 @import 'portfolio';
 @import 'learning';
 @import 'contact';
+.nav-btn,
+#return {
+    z-index: 1;
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    border: none;
+    background: #ff0d0d;
+    color: #fff;
+    border-radius: 33px;
+    padding: 0.4em;
+    box-shadow: 0px 0px 6px 0px black;
+    transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), top 1s ease;
+    i {
+        font-size: 2.2rem;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        transform: scale(1.2) rotate(360deg);
+        cursor: pointer;
+    }
+}
+
+#return {
+    z-index: 2;
+    top: 15px;
+    left: 75%;
+    border-radius: 0;
+    &:hover,
+    &:focus,
+    &:active {
+        transform: scale(1.2);
+    }
+    display: none;
+}
+
+.show-nav {
+    top: 50px;
+}

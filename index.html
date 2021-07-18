@@ -5,22 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css" integrity="sha512-apX8rFN/KxJW8rniQbkvzrshQ3KvyEH+4szT3Sno5svdr6E/CP0QE862yEeLBMUnCqLko8QaugGkzvWS7uNfFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/regular.min.css" integrity="sha512-Nqct4Jg8iYwFRs/C34hjAF5og5HONE2mrrUV1JZUswB+YU7vYSPyIjGMq+EAQYDmOsMuO9VIhKpRUa7GjRKVlg==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" integrity="sha512-jQqzj2vHVxA/yCojT8pVZjKGOe9UmoYvnOuM/2sQ110vxiajBU+4WkyRs1ODMmd4AfntwUEV4J+VfM6DkfjLRg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    <link rel="preconnect stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="dist/css/style.css">
     <title>Ayush Gupta</title>
 </head>
 
 <body>
-    <button type="button" class="nav-btn" title="open navigation"><i class="far fa-compass"></i></button>
     <header class="header flex column">
-        <button type="button" id="return" title="exit navigation"><i class="fas fa-long-arrow-alt-right"></i></button>
+        <h1>Portfolio website of Ayush Gupta</h1>
         <nav>
             <a href="#home">Home</a>
             <a href="#about-me">About</a>
@@ -40,7 +33,7 @@
             <p id="explanation">
                 The three things on which I always work on, either its developing a website or starting a new exercise habit. Apply with a positive mindset, fail, iterate and be patient for better results.
             </p>
-            <a href="#about-me" id="about-btn" class="flex" title="click to view">
+            <a href="#about-me" id="about-btn" class="flex" title="click to view about page">
                 <i class="fas fa-user"></i>
             </a>
         </section>
@@ -49,34 +42,42 @@
     <section class="sections flex column" id="about-me">
         <section id="who-am-i" class="flex">
             <h2>
-                <span>WHO<br>AM</span>
+                <span>Who<br>Am</span>
                 <span>I</span>
             </h2>
-            <p class="slides">Hi, I am <strong>Ayush Gupta</strong>, a <strong>student, front end web developer and fitness enthusiast</strong> based in Gaya, Bihar, India. I have completed my matriculation in my hometown only. Currently, I am studying in GBPEC in New
+            <p>Hi, I am <strong>Ayush Gupta</strong>, a <strong>student, front end web developer and fitness enthusiast</strong> based in Gaya, Bihar, India. I have completed my matriculation in my hometown only. Currently, I am studying in GBPEC in New
                 Delhi, India, in my 3<sup>rd</sup> year of graduation. I am an active guy and a big fan of science fiction movies (Interstellar just blew my mind). I can speak english quite well and try to talk in hindi more (if you can understand), शुद्ध
                 हिंदी not hinglish and I workout 5 days a week.</p>
         </section>
-        <a href="#portfolio" id="see-my-work" title="click to view">See My Work</a>
+        <a href="#portfolio" id="see-my-work" title="click to view work">See My Work</a>
     </section>
     <section class="sections" id="portfolio">
         <h2>MY PORTFOLIO</h2>
+        <nav id="cube-nav">
+            <div class="serial-num flex" title="click to view project 1" tabindex="0">P-1</div>
+            <div class="serial-num flex" title="click to view project 2" tabindex="0">P-2</div>
+            <div class="serial-num flex" title="click to view project 3" tabindex="0">P-3</div>
+            <div class="serial-num flex" title="click to view project 4" tabindex="0">P-4</div>
+            <div class="serial-num flex" title="click to view project 5" tabindex="0">P-5</div>
+            <div class="serial-num flex" title="click to view project 6" tabindex="0">P-6</div>
+        </nav>
         <section class="projects-cube flex">
             <section class="projects flex">
                 <h3 class="name">Typemaster</h3>
                 <p class="description">
-                    what makes this game special is the <em>Speech Synthesis API</em> helping you focus on the keyboard, not on the screen. <a href="https://fitgang.github.io/type_master/" target="_blank" class="project-links">View here</a>
+                    what makes this game special is the <em>Speech Synthesis API</em> helping you focus on the keyboard, not on the screen. <a href="https://fitgang.github.io/type_master/" target="_blank" class="project-links">View project</a>
                 </p>
             </section>
             <section class="projects flex">
                 <h3 class="name">Currency converter</h3>
                 <p class="description">
-                    Using a <em>third party API</em>, this application can convert your money in more than 100 currencies.<a href="https://fitgang.github.io/currency_converter/" target="_blank" class="project-links">View here</a>
+                    Using a <em>third party API</em>, this application can convert your money in more than 100 currencies.<a href="https://fitgang.github.io/currency_converter/" target="_blank" class="project-links">View project</a>
                 </p>
             </section>
             <section class="projects flex">
                 <h3 class="name">Minesweeper</h3>
                 <p class="description">
-                    Yes, a classic one. It can teach a developer about <em>recursion</em> and still a brain drainer. <a href="https://fitgang.github.io/minesweeper/" target="_blank" class="project-links">View here</a>
+                    Yes, a classic one. It can teach a developer about <em>recursion</em> and still a brain drainer. <a href="https://fitgang.github.io/minesweeper/" target="_blank" class="project-links">View project</a>
                 </p>
             </section>
             <section class="projects flex">
@@ -92,15 +93,7 @@
                 <p class="description">Coming Soon...</p>
             </section>
         </section>
-        <nav id="cube-nav" title="click to navigate through the cube">
-            <div class="serial-num flex">1</div>
-            <div class="serial-num flex">2</div>
-            <div class="serial-num flex">3</div>
-            <div class="serial-num flex">4</div>
-            <div class="serial-num flex">5</div>
-            <div class="serial-num flex">6</div>
-        </nav>
-        <a href="#learning" id="my-sources" class="flex" title="click to view">MY Sources</a>
+        <a href="#learning" id="my-sources" class="flex" title="click to view learning">MY Sources</a>
     </section>
     <section id="learning" class="sections">
         <h2>
@@ -110,17 +103,17 @@
         </h2>
         <p>I learnt about the web, so far, from the web through my laptop at my home. I begin around September 2020. Google and Youtube are the vast libraries from where I got all the information. I was pretty lazy in the beginning, just sitting for an hour
             on the laptop coding was exhausting, but now am better at it.</p>
-
         <p> Most of my learnings are from <a href="https://www.freecodecamp.org/" id="fcc" title="click to view website" target="_blank">freecodecamp</a> and traversy media on youtube. I regularly read content on w3schools and MDN. And I find searching on
             google as a soft skill for developers.</p>
 
-        <h4>Following are some of the certifications I did -</h4>
+        <h3>Following are some of the certifications I did -</h3>
         <ul id="cert-links">
             <li><a href="https://www.freecodecamp.org/certification/acoderg/javascript-algorithms-and-data-structures" target="_blank">JavaScript</a></li>
             <li><a href="doc/coursera_html_cert.pdf" target="_blank">HTML5</a></li>
             <li><a href="doc/coursera_css_cert.pdf" target="_blank">CSS3</a></li>
         </ul>
-        <a href="#contact" id="say-hello">Say Hello</a>
+
+        <a href="#contact" id="say-hello" title="click to view contact page">Say Hello</a>
     </section>
     <footer id="contact" class="flex column">
         <h2>Find me on</h2>
@@ -136,6 +129,8 @@
         <a href="https://github.com/fitgang/my-portfolio" target="_blank" id="source-code">Website Source Code</a>
         <a href="#home">Back to top</a>
     </footer>
+    <button type="button" class="nav-btn" title="open navigation"><i class="far fa-compass"></i></button>
+    <button type="button" id="return" title="exit navigation" tabindex="-1"><i class="fas fa-long-arrow-alt-right"></i></button>
     <section id="preloader"></section>
     <script src="script.js"></script>
 </body>

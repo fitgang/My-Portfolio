@@ -1,23 +1,23 @@
+// setting the observer
 const observer = new IntersectionObserver(entries =>
     entries.forEach(entry => {
-        let className;
-        switch (entry.target.id) {
-            case "home":
-                className = 'view-home';
-                break;
-            case "about-me":
-                className = 'view-about';
-                break;
-            case "portfolio":
-                className = 'view-portfolio';
-                break;
-        }
+
+        // elements to be observed
+        let sections = {
+            "home": 'view-home',
+            "about-me": 'view-about',
+            "portfolio": 'view-portfolio'
+        };
+
+        // respective classnames to be added
+        let className = sections[entry.target.id];
         if (entry.isIntersecting) {
             entry.target.classList.add(className);
             observer.unobserve(entry.target)
         }
     }), { threshold: 0.2 });
 
+// intersection observer entries
 ['#home', '#about-me', '#portfolio'].forEach(s => observer.observe(document.querySelector(s)));
 
 //
@@ -26,8 +26,8 @@ const observer = new IntersectionObserver(entries =>
 const navBtn = document.querySelector(".nav-btn");
 let sp1 = 0; // initial scrolltop value when the users scrolls
 
-function showNavBtn(event) {
-    if (sp1 && document.documentElement.scrollTop - sp1 < -50 && !navBtn.classList.contains("show-nav")) {
+function showNavBtn() {
+    if (sp1 && document.documentElement.scrollTop - sp1 < -20 && !navBtn.classList.contains("show-nav")) {
         navBtn.classList.add("show-nav");
         setTimeout(() => {
             navBtn.classList.remove("show-nav");
@@ -39,17 +39,29 @@ function showNavBtn(event) {
 function removeHeader() {
     const menu = document.querySelector(".header");
     menu.classList.remove("show-header");
-    const links = menu.children[1].children;
-    const returnBtn = menu.querySelector("#return");
-    [returnBtn, ...links].forEach(e => e.removeEventListener("click", removeHeader))
+    const returnBtn = document.querySelector("#return");
+    returnBtn.style.display = "none";
+    const links = menu.lastElementChild.children;
+    [returnBtn, ...links].forEach(el => el.removeEventListener("click", removeHeader));
+    [...links].forEach(link => link.removeEventListener("keydown", setFocusAndRemoveHeader))
+}
+
+function setFocusAndRemoveHeader(event) {
+    if (event.key == "Enter") {
+        console.log(document.querySelector(event.target.hash));
+        document.querySelector(event.target.hash).focus();
+        removeHeader()
+    }
 }
 
 function showHeader() {
     const menu = document.querySelector(".header");
     menu.classList.add("show-header");
-    const links = menu.children[1].children;
-    const returnBtn = menu.querySelector("#return");
-    [returnBtn, ...links].forEach(e => e.addEventListener("click", removeHeader))
+    const returnBtn = document.querySelector("#return");
+    setTimeout(() => returnBtn.style.display = "initial", 500);
+    const links = menu.lastElementChild.children;
+    [returnBtn, ...links].forEach(el => el.addEventListener("click", removeHeader));
+    [...links].forEach(link => link.addEventListener("keydown", setFocusAndRemoveHeader))
 }
 
 // EVENT listener
@@ -124,4 +136,5 @@ secP.addEventListener("mousemove", rotate);
 const nums = document.querySelectorAll(".serial-num");
 nums.forEach((n, i) => {
     n.addEventListener("click", () => alignCube(i));
+    n.addEventListener("keypress", (event) => { if (event.key == "Enter") alignCube(i) })
 });

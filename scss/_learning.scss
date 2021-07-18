@@ -33,7 +33,7 @@
         }
     }
     p,
-    h4 {
+    h3 {
         position: relative;
         top: 2em;
     }
@@ -55,7 +55,7 @@
             }
         }
     }
-    h4 {
+    h3 {
         grid-row: 4/5;
     }
 }
@@ -80,7 +80,7 @@
 
 @media screen and (max-width:750px) {
     #learning p,
-    #learning h4,
+    #learning h3,
     #cert-links {
         position: initial;
     }

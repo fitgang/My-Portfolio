@@ -1,12 +1,16 @@
 .header {
     transform: translateX(-100%);
+    transition: 1s ease;
     position: fixed;
     height: 100vh;
     width: 100%;
     z-index: 2;
-    background: red;
     padding: 2em 1em;
-    transition: 1s ease;
+    background: red;
+    h1 {
+        position: absolute;
+        left: -10000px;
+    }
 }
 
 nav a {
@@ -24,26 +28,7 @@ nav a {
     }
 }
 
-#return {
-    position: absolute;
-    top: 30px;
-    right: 20%;
-    background: transparent;
-    color: #fff;
-    border: 2px solid;
-    padding: 0.4em;
-    border-radius: 100%;
-    i {
-        font-size: 1.8rem;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-        background: #00000033;
-        cursor: pointer;
-    }
-}
-
-.show-header {
+.show-header,
+.header:focus-within {
     transform: translateX(0);
 }

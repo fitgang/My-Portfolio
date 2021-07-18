@@ -1,9 +1,11 @@
 #portfolio {
     display: grid;
     grid-template-columns: 130px 1fr 150px;
+    grid-template-areas: 'h2 cube nav' '. button .';
     padding: 0;
     color: var(--color1);
     h2 {
+        grid-area: h2;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         font-size: 5rem;
@@ -21,6 +23,7 @@
 }
 
 .projects-cube {
+    grid-area: cube;
     width: calc(var(--width) * 3 /2);
     height: calc(var(--width) * 3 /2);
     margin: 6rem 0;
@@ -125,6 +128,7 @@
 }
 
 #cube-nav {
+    grid-area: nav;
     @include mq(700px) {
         width: 50%;
     }
@@ -157,7 +161,7 @@
 }
 
 #my-sources {
-    grid-column: 1 / 4;
+    grid-area: button;
     place-self: center;
     height: 3rem;
     width: 10rem;
