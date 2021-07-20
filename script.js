@@ -3,7 +3,6 @@
 
 const navBtn = document.querySelector(".nav-btn");
 let sp1 = 0; // initial scrolltop value when the users scrolls
-
 function showNavBtn() {
     if (sp1 && document.documentElement.scrollTop - sp1 < -20 && !navBtn.classList.contains("show-nav")) {
         navBtn.classList.add("show-nav");
@@ -84,7 +83,9 @@ function setTransition(value) {
 
 // aligns the cube to show the required element
 function alignCube(index) {
-    const rp = document.querySelectorAll(".projects")[index].querySelector(".description"); // req <p> element
+    const s = document.querySelectorAll(".projects")[index],
+        rp = s.querySelector(".description"); // req <p> element
+
     if (rp.classList.contains("show-description")) return;
     grab = true;
     const degArray = [
@@ -104,9 +105,10 @@ function alignCube(index) {
     pArr.forEach(p => {
         if (p.classList.contains("show-description")) p.classList.remove("show-description")
     });
+    s.focus();
 
     // show the req description
-    rp.classList.add("show-description");
+    rp.classList.add("show-description")
 }
 
 // EVENT LISTENERS
