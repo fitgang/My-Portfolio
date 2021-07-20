@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="dns-prefetch stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/dist/css/style.min.css" media="print" onload="this.media='all'; this.onload=null;">
+    <!-- <link rel="stylesheet" href="/dist/css/style.min.css" media="print" onload="this.media='all'; this.onload=null;"> -->
+    <link rel="preload" href="/dist/css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;900&display=swap');
          :root {
