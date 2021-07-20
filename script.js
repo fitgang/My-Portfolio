@@ -1,25 +1,3 @@
-// setting the observer
-const observer = new IntersectionObserver(entries =>
-    entries.forEach(entry => {
-
-        // elements to be observed
-        let sections = {
-            "home": 'view-home',
-            "about-me": 'view-about',
-            "portfolio": 'view-portfolio'
-        };
-
-        // respective classnames to be added
-        let className = sections[entry.target.id];
-        if (entry.isIntersecting) {
-            entry.target.classList.add(className);
-            observer.unobserve(entry.target)
-        }
-    }), { threshold: 0.2 });
-
-// intersection observer entries
-['#home', '#about-me', '#portfolio'].forEach(s => observer.observe(document.querySelector(s)));
-
 //
 // SHOW NAV BUTTON ON SLIDE UP AND NAV MENU ON NAV BUTTON CLICK
 

@@ -5,9 +5,146 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    <link rel="dns-prefetch stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="/dist/css/style.min.css" media="print" onload="this.media='all'; this.onload=null;">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;900&display=swap');
+         :root {
+            --color1: #344059;
+            --color2: #A6796F;
+            --color3: #E9F1F2
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background: var(--color3);
+        }
+        
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: wrap;
+        }
+        
+        .column {
+            flex-direction: column;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        #preloader {
+            position: absolute;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            font-size: 7rem;
+            animation: track-in 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        }
+        
+        @keyframes track-in {
+            0% {
+                letter-spacing: -0.5em;
+                transform: scale(0);
+                opacity: 0;
+            }
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            90% {
+                opacity: 0;
+                top: 0;
+            }
+            100% {
+                opacity: 0;
+                top: -100%;
+            }
+        }
+        
+        .header {
+            transform: translateX(-100%);
+        }
+        
+        #three-words span,
+        #who-am-i span,
+        #portfolio h2,
+        #learning h2 span {
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        .sections {
+            min-height: 100vh;
+            padding: 1em;
+        }
+        
+        #home,
+        #learning,
+        #preloader {
+            color: var(--color3);
+            background: var(--color1);
+        }
+        
+        #home {
+            justify-content: space-evenly;
+        }
+        
+        #ideology {
+            max-width: 500px;
+            min-width: 300px;
+            margin-top: 1em;
+        }
+        
+        #three-words {
+            font-size: clamp(60px, 9vw, 100px);
+        }
+        
+        #three-words span,
+        #explanation,
+        #about-btn,
+        #about-btn::after,
+        #photo {
+            opacity: 0;
+        }
+        
+        #three-words span {
+            display: block;
+            line-height: 95%;
+        }
+        
+        #three-words span:first-child {
+            transform: rotate(-90deg);
+            transform-origin: bottom left;
+        }
+        
+        #three-words span:nth-child(2) {
+            transform: translateX(-100%);
+        }
+        
+        #three-words span#and {
+            font-size: 0.5em;
+            padding-top: 3%;
+        }
+        
+        #three-words span#and,
+        #who-am-i span:last-child,
+        #portfolio h2,
+        .name,
+        #learning h2 span:nth-child(2) {
+            font-weight: 100;
+        }
+    </style>
     <title>Ayush Gupta</title>
 </head>
 
@@ -24,27 +161,15 @@
     </header>
     <section class="flex sections" id="home">
         <section id="ideology">
-            <p id="three-words">
-                <span>Mindset</span>
-                <span>Application</span>
-                <span id="and">and</span>
-                <span>Patience</span>
-            </p>
-            <p id="explanation">
-                The three things on which I always work on, either its developing a website or starting a new exercise habit. Apply with a positive mindset, fail, iterate and be patient for better results.
-            </p>
-            <a href="#about-me" id="about-btn" class="flex" title="click to view about page">
-                <i class="fas fa-user"></i>
-            </a>
+            <h2 id="three-words"><span>Mindset</span><span>Application</span><span id="and">and</span><span>Patience</span></h2>
+            <p id="explanation">The three things on which I always work on, either its developing a website or starting a new exercise habit. Apply with a positive mindset, fail, iterate and be patient for better results.</p>
+            <a href="#about-me" id="about-btn" class="flex" title="click to view about page"><i class="fas fa-user"></i></a>
         </section>
         <img src="img/my-photo.jpg" id="photo" alt="Ayush Gupta" title="Ayush Gupta">
     </section>
     <section class="sections flex column" id="about-me">
         <section id="who-am-i" class="flex">
-            <h2>
-                <span>Who<br>Am</span>
-                <span>I</span>
-            </h2>
+            <h2><span>Who<br>Am</span><span>I</span></h2>
             <p>Hi, I am <strong>Ayush Gupta</strong>, a <strong>student, front end web developer and fitness enthusiast</strong> based in Gaya, Bihar, India. I have completed my matriculation in my hometown only. Currently, I am studying in GBPEC in New
                 Delhi, India, in my 3<sup>rd</sup> year of graduation. I am an active guy and a big fan of science fiction movies (Interstellar just blew my mind). I can speak english quite well and try to talk in hindi more (if you can understand), शुद्ध
                 हिंदी not hinglish and I workout 5 days a week.</p>
@@ -95,7 +220,7 @@
         </section>
         <a href="#learning" id="my-sources" class="flex" title="click to view learning">MY Sources</a>
     </section>
-    <section id="learning" class="sections">
+    <section id="learning" class="sections" tabindex="-1">
         <h2>
             <span>where</span>
             <span>i</span>
@@ -129,10 +254,35 @@
         <a href="https://github.com/fitgang/my-portfolio" target="_blank" id="source-code">Website Source Code</a>
         <a href="#home">Back to top</a>
     </footer>
-    <button type="button" class="nav-btn" title="open navigation"><i class="far fa-compass"></i></button>
+    <button type="button" class="nav-btn" title="open navigation"><i class="fas fa-compass"></i></button>
     <button type="button" id="return" title="exit navigation" tabindex="-1"><i class="fas fa-long-arrow-alt-right"></i></button>
-    <section id="preloader"></section>
-    <script src="script.js"></script>
+    <div id="preloader" class="flex"> Hello </div>
+    <script>
+        // setting the observer
+        const observer = new IntersectionObserver(entries =>
+            entries.forEach(entry => {
+
+                // elements to be observed
+                let sections = {
+                    "home": 'view-home',
+                    "about-me": 'view-about',
+                    "portfolio": 'view-portfolio'
+                };
+
+                // respective classnames to be added
+                let className = sections[entry.target.id];
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(className);
+                    observer.unobserve(entry.target)
+                }
+            }), {
+                threshold: 0.2
+            });
+
+        // intersection observer entries
+        ['#home', '#about-me', '#portfolio'].forEach(s => observer.observe(document.querySelector(s)));
+    </script>
+    <script src="script.min.js"></script>
 </body>
 
 </html>
