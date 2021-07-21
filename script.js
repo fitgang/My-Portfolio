@@ -83,8 +83,7 @@ function setTransition(value) {
 
 // aligns the cube to show the required element
 function alignCube(index) {
-    const s = document.querySelectorAll(".projects")[index],
-        rp = s.querySelector(".description"); // req <p> element
+    const rp = document.querySelectorAll(".projects")[index].querySelector(".description"); // req <p> element
 
     if (rp.classList.contains("show-description")) return;
     grab = true;
@@ -105,10 +104,12 @@ function alignCube(index) {
     pArr.forEach(p => {
         if (p.classList.contains("show-description")) p.classList.remove("show-description")
     });
-    s.focus();
 
     // show the req description
-    rp.classList.add("show-description")
+    rp.classList.add("show-description");
+
+    const a = rp.querySelector(".project-links");
+    if (a) a.focus()
 }
 
 // EVENT LISTENERS

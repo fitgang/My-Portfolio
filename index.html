@@ -8,12 +8,11 @@
     <link rel="dns-prefetch stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="dist/css/style.min.css" media="print" onload="this.media='all'; this.onload=null;">
-<!--     <link rel="stylesheet" href="dist/css/style.min.css"> -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;900&display=swap');
          :root {
             --color1: #344059;
-            --color2: #A6796F;
+            --color2: #90584c;
             --color3: #E9F1F2
         }
         
@@ -166,7 +165,7 @@
             <p id="explanation">The three things on which I always work on, either its developing a website or starting a new exercise habit. Apply with a positive mindset, fail, iterate and be patient for better results.</p>
             <a href="#about-me" id="about-btn" class="flex" title="click to view about page"><i class="fas fa-user"></i></a>
         </section>
-        <img src="img/my-photo.jpg" id="photo" alt="Ayush Gupta" title="Ayush Gupta">
+        <img src="img/my-photo.jpg" id="photo" alt="Enthusiastic Gupta" title="Ayush Gupta">
     </section>
     <section class="sections flex column" id="about-me">
         <section id="who-am-i" class="flex">
@@ -180,30 +179,30 @@
     <section class="sections" id="portfolio">
         <h2>MY PORTFOLIO</h2>
         <nav id="cube-nav">
-            <div class="serial-num flex" title="click to view project 1" tabindex="0">P-1</div>
-            <div class="serial-num flex" title="click to view project 2" tabindex="0">P-2</div>
-            <div class="serial-num flex" title="click to view project 3" tabindex="0">P-3</div>
-            <div class="serial-num flex" title="click to view project 4" tabindex="0">P-4</div>
-            <div class="serial-num flex" title="click to view project 5" tabindex="0">P-5</div>
-            <div class="serial-num flex" title="click to view project 6" tabindex="0">P-6</div>
+            <div class="serial-num flex" title="click to view project 1" aria-label="click to view project 1" tabindex="0">P-1</div>
+            <div class="serial-num flex" title="click to view project 2" aria-label="click to view project 2" tabindex="0">P-2</div>
+            <div class="serial-num flex" title="click to view project 3" aria-label="click to view project 3" tabindex="0">P-3</div>
+            <div class="serial-num flex" title="click to view project 4" aria-label="project 4 coming Soon" tabindex="0">P-4</div>
+            <div class="serial-num flex" title="click to view project 5" aria-label="project 5 coming Soon" tabindex="0">P-5</div>
+            <div class="serial-num flex" title="click to view project 6" aria-label="project 6 coming Soon" tabindex="0">P-6</div>
         </nav>
         <section class="projects-cube flex">
             <section class="projects flex">
                 <h3 class="name">Typemaster</h3>
                 <p class="description">
-                    what makes this game special is the <em>Speech Synthesis API</em> helping you focus the keyboard, not the screen. <a href="https://fitgang.github.io/type_master/" target="_blank" class="project-links">View project</a>
+                    what makes this game special is the <em>Speech Synthesis API</em> helping you focus the keyboard, not the screen. <a href="https://fitgang.github.io/type_master/" target="_blank" class="project-links" aria-label="view typemaster">View project</a>
                 </p>
             </section>
             <section class="projects flex">
                 <h3 class="name">Currency converter</h3>
                 <p class="description">
-                    Using a <em>third party API</em>, this application can convert your money in more than 100 currencies.<a href="https://fitgang.github.io/currency_converter/" target="_blank" class="project-links">View project</a>
+                    Using a <em>third party API</em>, this application can convert your money in more than 100 currencies.<a href="https://fitgang.github.io/currency_converter/" target="_blank" class="project-links" aria-label="view currency converter">View project</a>
                 </p>
             </section>
             <section class="projects flex">
                 <h3 class="name">Minesweeper</h3>
                 <p class="description">
-                    Yes, a classic one. It can teach a developer about <em>recursion</em> and still a brain drainer. <a href="https://fitgang.github.io/minesweeper/" target="_blank" class="project-links">View project</a>
+                    Yes, a classic one. It can teach a developer about <em>recursion</em> and still a brain drainer. <a href="https://fitgang.github.io/minesweeper/" target="_blank" class="project-links" aria-label="view minesweeper">View project</a>
                 </p>
             </section>
             <section class="projects flex">
@@ -221,12 +220,8 @@
         </section>
         <a href="#learning" id="my-sources" class="flex" title="click to view learning">MY Sources</a>
     </section>
-    <section id="learning" class="sections" tabindex="-1">
-        <h2>
-            <span>where</span>
-            <span>i</span>
-            <span>learn</span>
-        </h2>
+    <section id="learning" class="sections">
+        <h2><span>where</span><span>i</span><span>learn</span></h2>
         <p>I learnt about the web, so far, from the web through my laptop at my home. I begin around September 2020. Google and Youtube are the vast libraries from where I got all the information. I was pretty lazy in the beginning, just sitting for an hour
             on the laptop coding was exhausting, but now am better at it.</p>
         <p> Most of my learnings are from <a href="https://www.freecodecamp.org/" id="fcc" title="click to view website" target="_blank">freecodecamp</a> and traversy media on youtube. I regularly read content on w3schools and MDN. And I find searching on
@@ -235,8 +230,8 @@
         <h3>Following are some of the certifications I did -</h3>
         <ul id="cert-links">
             <li><a href="https://www.freecodecamp.org/certification/acoderg/javascript-algorithms-and-data-structures" target="_blank">JavaScript</a></li>
-            <li><a href="doc/coursera_html_cert.pdf" target="_blank">HTML5</a></li>
-            <li><a href="doc/coursera_css_cert.pdf" target="_blank">CSS3</a></li>
+            <li><a href="doc/coursera_html_cert.pdf" target="_blank" aria-label="html pdf certificate">HTML5</a></li>
+            <li><a href="doc/coursera_css_cert.pdf" target="_blank" aria-label="css pdf certificate">CSS3</a></li>
         </ul>
 
         <a href="#contact" id="say-hello" title="click to view contact page">Say Hello</a>
@@ -255,8 +250,8 @@
         <a href="https://github.com/fitgang/my-portfolio" target="_blank" id="source-code">Website Source Code</a>
         <a href="#home">Back to top</a>
     </footer>
-    <button type="button" class="nav-btn" title="open navigation"><i class="fas fa-compass"></i></button>
-    <button type="button" id="return" title="exit navigation" tabindex="-1"><i class="fas fa-long-arrow-alt-right"></i></button>
+    <div class="nav-btn" title="open navigation"><i class="fas fa-compass"></i></div>
+    <div id="return" title="exit navigation"><i class="fas fa-long-arrow-alt-right"></i></div>
     <div id="preloader" class="flex"> Hello </div>
     <script>
         // setting the observer
