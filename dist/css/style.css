@@ -1,753 +1,801 @@
 :root {
-    --width: 200px;
-    --absValue: calc(var(--width)*3/4);
+  --width: 200px;
+  --absValue: calc(var(--width) * 3 / 4);
 }
 
 @media screen and (max-width: 700px) {
-     :root {
-        --absValue: calc(var(--width)/2);
-    }
+  :root {
+    --absValue: calc(var(--width) / 2);
+  }
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .header {
-    transition: 1s ease;
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    z-index: 2;
-    padding: 2em 1em;
-    background: red;
+  transition: 1s ease;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+  padding: 2em 1em;
+  background: red;
 }
 
 .header h1 {
-    position: absolute;
-    left: -10000px;
+  position: absolute;
+  left: -10000px;
 }
 
-nav a {
-    display: block;
-    font-size: clamp(54px, 17vw, 90px);
-    color: #fff;
-    margin: 2vh auto;
-    border-bottom: 1px solid;
-    text-shadow: 3px 3px 0px black;
-    transform: skewX(-10deg);
+.header nav a {
+  display: block;
+  font-size: clamp(54px, 17vw, 90px);
+  color: #fff;
+  margin: 2vh auto;
+  border-bottom: 1px solid;
+  text-shadow: 3px 3px 0px black;
+  transform: skewX(-10deg);
 }
 
-nav a:hover,
-nav a:focus,
-nav a:active {
-    text-shadow: none;
+.header nav a:hover,
+.header nav a:focus,
+.header nav a:active {
+  text-shadow: none;
 }
 
 header.show-header,
 .header:focus-within {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 @media screen and (max-width: 350px) {
-    .sections {
-        padding: 1px;
-    }
+  .sections {
+    padding: 1px;
+  }
 }
 
 #about-me {
-    color: var(--color2);
+  color: var(--color2);
 }
 
 #explanation,
 #who-am-i p {
-    color: var(--color3);
-    margin-top: 0.5em;
-    font-size: clamp(14px, 1.53vw, 16px);
-    line-height: 1.3em;
-    word-spacing: 1px;
-    letter-spacing: 0.3px;
-    opacity: 0;
+  color: var(--color3);
+  margin-top: 0.5em;
+  font-size: clamp(14px, 1.53vw, 16px);
+  line-height: 1.3em;
+  word-spacing: 1px;
+  letter-spacing: 0.3px;
+  opacity: 0;
 }
 
 #about-btn {
-    width: clamp(36px, 5.5vw, 64px);
-    height: clamp(36px, 5.5vw, 64px);
-    color: var(--color2);
-    border: 3px solid var(--color3);
-    border-radius: 100px;
-    margin: 2em auto auto 2em;
-    background: var(--color3);
-    position: relative;
-    transition: 300ms ease;
+  width: clamp(36px, 5.5vw, 64px);
+  height: clamp(36px, 5.5vw, 64px);
+  color: var(--color2);
+  border: 3px solid var(--color3);
+  border-radius: 100px;
+  margin: 2em auto auto 2em;
+  background: var(--color3);
+  position: relative;
+  transition: 300ms ease;
 }
 
 #about-btn .fas {
-    font-size: clamp(15px, 2.5vw, 28px);
-    position: absolute;
-    left: 27%;
-    transition: inherit;
+  font-size: clamp(15px, 2.5vw, 28px);
+  position: absolute;
+  left: 27%;
+  transition: inherit;
 }
 
 #about-btn::after {
-    content: "About me";
-    position: absolute;
-    right: 1em;
-    font-weight: 600;
+  content: "About me";
+  position: absolute;
+  right: 1em;
+  font-weight: 600;
 }
 
 #about-btn:hover,
 #about-btn:focus {
-    width: clamp(145px, 17vw, 200px);
+  width: clamp(145px, 17vw, 200px);
 }
 
 #about-btn:hover .fas,
 #about-btn:focus .fas {
-    left: 10%;
+  left: 10%;
 }
 
 #about-btn:hover::after,
 #about-btn:focus::after {
-    transition: opacity 0.5s ease-in;
-    opacity: 1;
+  transition: opacity 0.5s ease-in;
+  opacity: 1;
 }
 
 #photo {
-    width: clamp(280px, 45vw, 350px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    border: 5px solid;
-    padding: 0.1em;
-    margin: 1em;
-    -webkit-animation: shake 1s, up 1s;
-    animation: shake 1s, up 1s;
+  width: clamp(280px, 45vw, 350px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 5px solid;
+  padding: 0.1em;
+  margin: 1em;
+  -webkit-animation: shake 1s, up 1s;
+  animation: shake 1s, up 1s;
 }
 
 .view-home #three-words span {
-    opacity: 1;
+  opacity: 1;
 }
 
 .view-home #three-words span:first-child {
-    transform: rotate(0deg);
-    transition: transform 0.3s ease-out 1.4s, opacity 0.3s ease-out 1.4s;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-out 1.4s, opacity 0.3s ease-out 1.4s;
 }
 
 .view-home #three-words span:nth-child(2) {
-    transform: translateX(0);
-    transition: transform 0.4s ease 1.8s, opacity 0.4s ease 1.8s;
+  transform: translateX(0);
+  transition: transform 0.4s ease 1.8s, opacity 0.4s ease 1.8s;
 }
 
 .view-home #three-words span:nth-child(3) {
-    transition: transform 0.1s ease 2.3s, opacity 0.1s ease 2.3s;
+  transition: transform 0.1s ease 2.3s, opacity 0.1s ease 2.3s;
 }
 
 .view-home #three-words span:last-child {
-    transition: transform 0.8s ease-in 2.5s, opacity 0.8s ease-in 2.5s;
+  transition: transform 0.8s ease-in 2.5s, opacity 0.8s ease-in 2.5s;
 }
 
 .view-home #explanation,
 .view-home #about-btn,
 .view-home #photo {
-    -webkit-animation: op 0.8s ease 3.4s forwards;
-    animation: op 0.8s ease 3.4s forwards;
+  -webkit-animation: op 0.8s ease 3.4s forwards;
+  animation: op 0.8s ease 3.4s forwards;
 }
 
 @-webkit-keyframes op {
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes op {
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 #who-am-i {
-    margin: 4em 0;
+  margin: 4em 0;
 }
 
 #who-am-i h2 {
-    min-width: 308px;
-    font-size: 9rem;
-    letter-spacing: -5px;
-    line-height: 90%;
-    text-align: right;
-    opacity: 0;
-    z-index: -1;
+  min-width: 308px;
+  font-size: 9rem;
+  letter-spacing: -5px;
+  line-height: 90%;
+  text-align: right;
+  opacity: 0;
+  z-index: -1;
 }
 
 #who-am-i span {
-    display: inline-block;
-    text-transform: uppercase;
+  display: inline-block;
+  text-transform: uppercase;
 }
 
 #who-am-i span:last-child {
-    font-size: 2.1em;
-    margin-left: -0.04em;
+  font-size: 2.1em;
+  margin-left: -0.04em;
 }
 
 #who-am-i p {
-    display: inline-block;
-    color: inherit;
-    width: clamp(255px, 35%, 415px);
-    line-height: 150%;
-    transform: translateX(100%);
+  display: inline-block;
+  color: inherit;
+  width: clamp(255px, 35%, 415px);
+  line-height: 150%;
+  transform: translateX(100%);
 }
 
 #see-my-work {
-    padding: 1rem;
-    margin: 1rem;
-    position: relative;
+  padding: 1rem;
+  margin: 1rem;
+  position: relative;
 }
 
 #see-my-work::before,
 #see-my-work::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-style: solid;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-style: solid;
 }
 
 #see-my-work::before {
-    border-width: 4px 4px 0 0;
-    transition: width 0.3s ease, height 0.3s 0.3s ease;
+  border-width: 4px 4px 0 0;
+  transition: width 0.3s ease, height 0.3s 0.3s ease;
 }
 
 #see-my-work::after {
-    border-width: 0 0 4px 4px;
-    transition: width 0.3s 0.3s ease, height 0.3s ease;
+  border-width: 0 0 4px 4px;
+  transition: width 0.3s 0.3s ease, height 0.3s ease;
 }
 
 #see-my-work:hover::before,
 #see-my-work:hover::after {
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
 }
 
 #see-my-work:hover::before {
-    transition: width 0.3s 0.3s ease, height 0.3s ease;
+  transition: width 0.3s 0.3s ease, height 0.3s ease;
 }
 
 #see-my-work:hover::after {
-    transition: width 0.3s ease, height 0.3s 0.3s ease;
+  transition: width 0.3s ease, height 0.3s 0.3s ease;
 }
 
 section.view-about #who-am-i h2 {
-    -webkit-animation: titleAnim 1s ease both;
-    animation: titleAnim 1s ease both;
+  -webkit-animation: titleAnim 1s ease both;
+  animation: titleAnim 1s ease both;
 }
 
 section.view-about #who-am-i p {
-    transform: translateX(0);
-    opacity: 1;
-    transition: 0.8s ease-in-out 1s;
+  transform: translateX(0);
+  opacity: 1;
+  transition: 0.8s ease-in-out 1s;
 }
 
 @-webkit-keyframes titleAnim {
-    0% {
-        transform: translateY(100%) rotateX(30deg) scale(0);
-        transform-origin: 50% 100%;
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0) rotateX(0) scale(1);
-        transform-origin: 50% -1400px;
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(100%) rotateX(30deg) scale(0);
+    transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotateX(0) scale(1);
+    transform-origin: 50% -1400px;
+    opacity: 1;
+  }
 }
 
 @keyframes titleAnim {
-    0% {
-        transform: translateY(100%) rotateX(30deg) scale(0);
-        transform-origin: 50% 100%;
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0) rotateX(0) scale(1);
-        transform-origin: 50% -1400px;
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(100%) rotateX(30deg) scale(0);
+    transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotateX(0) scale(1);
+    transform-origin: 50% -1400px;
+    opacity: 1;
+  }
 }
 
 #portfolio {
-    display: grid;
-    grid-template-columns: 130px 1fr 150px;
-    grid-template-areas: 'h2 cube nav' '. button .';
-    padding: 0;
-    color: var(--color1);
+  display: grid;
+  grid-template-columns: 130px 1fr 150px;
+  grid-template-areas: "h2 cube nav" ". button .";
+  padding: 0;
+  color: var(--color1);
 }
 
 #portfolio h2 {
-    grid-area: h2;
-    -webkit-writing-mode: vertical-rl;
-    -ms-writing-mode: tb-rl;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 5rem;
+  grid-area: h2;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 5rem;
 }
 
 @media screen and (max-width: 700px) {
-    #portfolio {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    #portfolio h2 {
-        -webkit-writing-mode: initial;
-        -ms-writing-mode: initial;
-        writing-mode: initial;
-        transform: none;
-        font-size: 3.5rem;
-    }
+  #portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #portfolio h2 {
+    -webkit-writing-mode: initial;
+    -ms-writing-mode: initial;
+    writing-mode: initial;
+    transform: none;
+    font-size: 3.5rem;
+  }
 }
 
 .projects-cube {
-    grid-area: cube;
-    width: calc(var(--width) * 3 /2);
-    height: calc(var(--width) * 3 /2);
-    margin: 6rem 0;
-    place-self: center;
-    transform-style: preserve-3d;
+  grid-area: cube;
+  width: calc(var(--width) * 3 / 2);
+  height: calc(var(--width) * 3 / 2);
+  margin: 6rem 0;
+  place-self: center;
+  transform-style: preserve-3d;
 }
 
 @media screen and (max-width: 700px) {
-    .projects-cube {
-        width: var(--width);
-        height: var(--width);
-    }
+  .projects-cube {
+    width: var(--width);
+    height: var(--width);
+  }
 }
 
 .projects {
-    position: absolute;
-    border: 1px solid var(--color3);
-    width: var(--width);
-    height: var(--width);
-    background: var(--color1);
-    color: var(--color3);
-    transform-style: preserve-3d;
+  position: absolute;
+  border: 1px solid var(--color3);
+  width: var(--width);
+  height: var(--width);
+  background: var(--color1);
+  color: var(--color3);
+  transform-style: preserve-3d;
 }
 
 .projects::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color2);
-    transform: rotateY(180deg);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color2);
+  transform: rotateY(180deg);
 }
 
 .projects:nth-child(1) {
-    transform: translateZ(calc(var(--absValue) * 2 * -1)) rotateY(180deg);
+  transform: translateZ(calc(var(--absValue) * 2 * -1)) rotateY(180deg);
 }
 
 .projects:nth-child(2) {
-    transform: translateZ(calc(var(--absValue) * -1)) translateY(var(--absValue)) rotateX(-90deg);
+  transform: translateZ(calc(var(--absValue) * -1)) translateY(var(--absValue))
+    rotateX(-90deg);
 }
 
 .projects:nth-child(3) {
-    transform: translateZ(calc(var(--absValue) * -1)) translateY(calc(var(--absValue) * -1)) rotateX(90deg);
+  transform: translateZ(calc(var(--absValue) * -1))
+    translateY(calc(var(--absValue) * -1)) rotateX(90deg);
 }
 
 .projects:nth-child(4) {
-    transform: translateZ(calc(var(--absValue) * -1)) translateX(var(--absValue)) rotateY(90deg);
+  transform: translateZ(calc(var(--absValue) * -1)) translateX(var(--absValue))
+    rotateY(90deg);
 }
 
 .projects:nth-child(5) {
-    transform: translateZ(calc(var(--absValue) * -1)) translateX(calc(var(--absValue) * -1)) rotateY(-90deg) rotateZ(180deg);
+  transform: translateZ(calc(var(--absValue) * -1))
+    translateX(calc(var(--absValue) * -1)) rotateY(-90deg) rotateZ(180deg);
 }
 
 .projects:nth-child(6) {
-    transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
 }
 
 .name {
-    font-size: 1.5em;
-    width: -webkit-min-content;
-    width: -moz-min-content;
-    width: min-content;
+  font-size: 1.5em;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
 }
 
 .name::first-letter {
-    font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 .description {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    padding: 1% 5%;
-    font-size: 18px;
-    line-height: 28px;
-    word-spacing: 4px;
-    background: inherit;
-    transform-origin: top;
-    transform: scaleY(0);
-    opacity: 0;
-    transition: 0.5s ease-in-out 0.7s;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  padding: 1% 5%;
+  font-size: 18px;
+  line-height: 28px;
+  word-spacing: 4px;
+  background: inherit;
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: 0.5s ease-in-out 0.7s;
 }
 
 .description,
 .projects::before {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .show-description {
-    opacity: 1;
-    transform: scaleY(1);
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .project-links {
-    display: block;
+  display: block;
 }
 
 .project-links:hover,
 .project-links:focus {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .project-links:visited {
-    color: #ff80ff;
+  color: #ff80ff;
 }
 
 .project-links:active {
-    color: red;
+  color: red;
 }
 
 #cube-nav {
-    grid-area: nav;
+  grid-area: nav;
 }
 
 @media screen and (max-width: 700px) {
-    #cube-nav {
-        width: 50%;
-    }
+  #cube-nav {
+    width: 50%;
+  }
 }
 
 .serial-num,
 #my-sources {
-    background: var(--color1);
-    color: var(--color3);
+  background: var(--color1);
+  color: var(--color3);
 }
 
 .serial-num:nth-child(2n) {
-    color: var(--color1);
-    background: var(--color3);
+  color: var(--color1);
+  background: var(--color3);
 }
 
 .serial-num {
-    height: calc(100%/6);
-    border: 1px solid var(--color1);
-    border-top: 0;
-    font-size: 3rem;
-    opacity: 0;
-    transform-origin: top;
+  height: calc(100% / 6);
+  border: 1px solid var(--color1);
+  border-top: 0;
+  font-size: 3rem;
+  opacity: 0;
+  transform-origin: top;
 }
 
 .serial-num:hover,
 .serial-num:focus,
 .serial-num:active {
-    -webkit-filter: drop-shadow(2px 4px 6px black);
-    filter: drop-shadow(2px 4px 6px black);
-    cursor: pointer;
+  -webkit-filter: drop-shadow(2px 4px 6px black);
+  filter: drop-shadow(2px 4px 6px black);
+  cursor: pointer;
 }
 
 #my-sources {
-    grid-area: button;
-    place-self: center;
-    height: 3rem;
-    width: 10rem;
-    border: 6px double;
-    margin: 3rem 0 2rem 0;
-    position: relative;
-    transition: 0.3s ease;
+  grid-area: button;
+  place-self: center;
+  height: 3rem;
+  width: 10rem;
+  border: 6px double;
+  margin: 3rem 0 2rem 0;
+  position: relative;
+  transition: 0.3s ease;
 }
 
 #my-sources::after {
-    content: '';
-    width: 8rem;
-    height: 3px;
-    border-radius: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    bottom: -1.2rem;
-    transition: 0.3s ease;
+  content: "";
+  width: 8rem;
+  height: 3px;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  bottom: -1.2rem;
+  transition: 0.3s ease;
 }
 
 #my-sources:hover,
 #my-sources:focus,
 #my-sources:active {
-    transform: translateY(-20px);
+  transform: translateY(-20px);
 }
 
 #my-sources:hover::after,
 #my-sources:focus::after,
 #my-sources:active::after {
-    width: 0;
+  width: 0;
 }
 
 .view-portfolio .serial-num:nth-child(1) {
-    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) forwards;
-    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) forwards;
+  -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) forwards;
+  animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) forwards;
 }
 
 .view-portfolio .serial-num:nth-child(2) {
-    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 0.7s forwards;
-    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 0.7s forwards;
+  -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 0.7s forwards;
+  animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 0.7s forwards;
 }
 
 .view-portfolio .serial-num:nth-child(3) {
-    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 1.4s forwards;
-    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 1.4s forwards;
+  -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 1.4s forwards;
+  animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 1.4s forwards;
 }
 
 .view-portfolio .serial-num:nth-child(4) {
-    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.1s forwards;
-    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.1s forwards;
+  -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.1s forwards;
+  animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.1s forwards;
 }
 
 .view-portfolio .serial-num:nth-child(5) {
-    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.8s forwards;
-    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.8s forwards;
+  -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.8s forwards;
+  animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 2.8s forwards;
 }
 
 .view-portfolio .serial-num:nth-child(6) {
-    -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 3.5s forwards;
-    animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 3.5s forwards;
+  -webkit-animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 3.5s forwards;
+  animation: drop 1s cubic-bezier(0.13, 0.03, 0.27, 1.55) 3.5s forwards;
 }
 
 @-webkit-keyframes drop {
-    from {
-        transform: rotateX(180deg);
-    }
-    to {
-        transform: rotateX(0);
-        opacity: 1;
-    }
+  from {
+    transform: rotateX(180deg);
+  }
+  to {
+    transform: rotateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes drop {
-    from {
-        transform: rotateX(180deg);
-    }
-    to {
-        transform: rotateX(0);
-        opacity: 1;
-    }
+  from {
+    transform: rotateX(180deg);
+  }
+  to {
+    transform: rotateX(0);
+    opacity: 1;
+  }
 }
 
 #learning {
-    display: grid;
-    grid-template-columns: 250px 490px;
-    place-content: center;
-    row-gap: 5px;
+  display: grid;
+  grid-template-columns: 250px 490px;
+  place-content: center;
+  row-gap: 5px;
 }
 
 @media screen and (max-width: 750px) {
-    #learning {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+  #learning {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 #learning h2 {
-    margin-top: 1em;
-    grid-row: 1/7;
+  margin-top: 1em;
+  grid-row: 1/7;
 }
 
 #learning h2 span {
-    display: block;
-    font-size: 7rem;
-    line-height: 90%;
-    letter-spacing: -5px;
-    text-align: center;
+  display: block;
+  font-size: 7rem;
+  line-height: 90%;
+  letter-spacing: -5px;
+  text-align: center;
 }
 
 #learning h2 span:nth-child(2),
 #learning h2 span:last-child {
-    margin-top: -25px;
+  margin-top: -25px;
 }
 
 @media screen and (max-width: 750px) {
-    #learning h2 span:nth-child(2),
-    #learning h2 span:last-child {
-        margin-top: 0;
-    }
+  #learning h2 span:nth-child(2),
+  #learning h2 span:last-child {
+    margin-top: 0;
+  }
 }
 
 #learning h2 span:nth-child(2) {
-    font-size: 22rem;
+  font-size: 22rem;
 }
 
 @media screen and (max-width: 750px) {
-    #learning h2 span:nth-child(2) {
-        font-size: 12rem;
-    }
+  #learning h2 span:nth-child(2) {
+    font-size: 12rem;
+  }
 }
 
 #learning p,
 #learning h3 {
-    position: relative;
-    top: 2em;
+  position: relative;
+  top: 2em;
 }
 
 #learning p {
-    left: -4em;
-    word-spacing: 2px;
-    letter-spacing: 0.2px;
-    line-height: 130%;
+  left: -4em;
+  word-spacing: 2px;
+  letter-spacing: 0.2px;
+  line-height: 130%;
 }
 
 @media screen and (max-width: 750px) {
-    #learning p {
-        margin: 1em 4px;
-    }
+  #learning p {
+    margin: 1em 4px;
+  }
 }
 
 #learning p:first-of-type {
-    grid-row: 2/3;
+  grid-row: 2/3;
 }
 
 #learning p:last-of-type {
-    grid-row: 3/4;
+  grid-row: 3/4;
 }
 
 @media screen and (max-width: 750px) {
-    #learning p:last-of-type {
-        margin: 0 4px 1em 4px;
-    }
+  #learning p:last-of-type {
+    margin: 0 4px 1em 4px;
+  }
 }
 
 #learning h3 {
-    grid-row: 4/5;
+  grid-row: 4/5;
 }
 
 #fcc,
 #cert-links a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 #cert-links {
-    grid-row: 5/6;
-    position: relative;
-    top: 2em;
-    list-style-position: inside;
+  grid-row: 5/6;
+  position: relative;
+  top: 2em;
+  list-style-position: inside;
 }
 
 #cert-links ul {
-    list-style-position: inside;
+  list-style-position: inside;
 }
 
 @media screen and (max-width: 750px) {
-    #cert-links {
-        margin: 0 4px 0 4px;
-    }
+  #cert-links {
+    margin: 0 4px 0 4px;
+  }
 }
 
 @media screen and (max-width: 750px) {
-    #learning p,
-    #learning h3,
-    #cert-links {
-        position: initial;
-    }
+  #learning p,
+  #learning h3,
+  #cert-links {
+    position: initial;
+  }
 }
 
 #say-hello {
-    grid-area: 7/1/8/3;
-    place-self: center;
-    padding: 0.5em 2em;
-    border: 7px ridge;
-    margin: 3em;
-    border-radius: 30px;
+  grid-area: 7/1/8/3;
+  place-self: center;
+  padding: 0.5em 2em;
+  border: 7px ridge;
+  margin: 3em;
+  border-radius: 30px;
 }
 
 #say-hello:hover,
 #say-hello:focus,
 #say-hello:active {
-    border: 7px groove;
+  border: 7px groove;
 }
 
 #contact {
-    padding: 1em 0;
+  display: grid;
+  grid-template-areas:
+    "contact nav"
+    "source top";
+  justify-content: space-evenly;
+  justify-items: center;
+  align-items: baseline;
+  padding: 1em 0;
+}
+
+@media screen and (max-width: 700px) {
+  #contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#contact section {
+  grid-area: contact;
+}
+
+#contact nav {
+  grid-area: nav;
+}
+
+@media screen and (max-width: 700px) {
+  #contact nav {
+    text-align: center;
+    width: 60%;
+    border: 2px solid black;
+    border-width: 2px 0;
+  }
+}
+
+#contact nav li {
+  font-size: 1.2em;
+  padding: 4px 3px;
+  margin: 3px auto;
 }
 
 #contact h2 {
-    font-size: 2.1em;
+  font-size: 2.1em;
+  text-align: center;
 }
 
 #contact ul {
-    list-style-type: none;
-    font-size: 1.1em;
-    margin: 0.5em 0 1em 0;
+  list-style-type: none;
+  font-size: 1.1em;
+  margin: 0.5em 0 1em 0;
 }
 
 #contact ul li i {
-    font-size: 1.5em;
-    padding-left: 0.4em;
+  font-size: 1.5em;
+  padding-left: 0.4em;
 }
 
 #contact a {
-    position: relative;
-    transition: 0.5s ease;
-    flex-direction: row;
-    padding: 0.3em;
+  position: relative;
+  transition: 0.5s ease;
+  flex-direction: row;
+  padding: 0.3em;
 }
 
 #contact a::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color2);
-    z-index: -1;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color2);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
 
 #contact a:hover {
-    color: var(--color3);
+  color: var(--color3);
 }
 
 #contact a:hover::after {
-    transform-origin: left;
-    transform: scaleX(1);
+  transform-origin: left;
+  transform: scaleX(1);
 }
 
 #contact #source-code {
-    margin: 0.5em 0;
+  margin: 0.5em 0;
+  grid-area: source;
+}
+
+#contact #top {
+  grid-area: top;
 }
 
 .nav-btn,
 #return {
-    z-index: 1;
-    position: fixed;
-    top: -50px;
-    left: 50%;
-    border: none;
-    background: #ff0d0d;
-    color: #fff;
-    border-radius: 33px;
-    padding: 0.4em;
-    box-shadow: 0px 0px 6px 0px black;
-    transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), top 1s ease;
+  z-index: 1;
+  position: fixed;
+  top: -50px;
+  left: 50%;
+  border: none;
+  background: #ff0d0d;
+  color: #fff;
+  border-radius: 33px;
+  padding: 0.4em;
+  box-shadow: 0px 0px 6px 0px black;
+  transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), top 1s ease;
 }
 
 .nav-btn i,
 #return i {
-    font-size: 2.2rem;
+  font-size: 2.2rem;
 }
 
 .nav-btn:hover,
@@ -756,24 +804,24 @@ section.view-about #who-am-i p {
 #return:hover,
 #return:focus,
 #return:active {
-    transform: scale(1.2) rotate(360deg);
-    cursor: pointer;
+  transform: scale(1.2) rotate(360deg);
+  cursor: pointer;
 }
 
 #return {
-    z-index: 2;
-    top: 15px;
-    left: 75%;
-    border-radius: 0;
-    display: none;
+  z-index: 2;
+  top: 15px;
+  left: 75%;
+  border-radius: 0;
+  display: none;
 }
 
 #return:hover,
 #return:focus,
 #return:active {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .show-nav {
-    top: 50px;
+  top: 50px;
 }
