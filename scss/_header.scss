@@ -10,9 +10,7 @@
         position: absolute;
         left: -10000px;
     }
-}
-
-nav a {
+    nav a {
     display: block;
     font-size: clamp(54px, 17vw, 90px);
     color: #fff;
@@ -25,6 +23,7 @@ nav a {
     &:active {
         text-shadow: none;
     }
+}
 }
 
 header.show-header,
