@@ -17,7 +17,6 @@ nums.forEach((n, i) => {
 
 const observer = new IntersectionObserver(entries => entries.forEach(entry => {
   let sections = {
-    "home": 'view-home',
     "about-me": 'view-about',
     "portfolio": 'view-portfolio'
   };
@@ -30,7 +29,7 @@ const observer = new IntersectionObserver(entries => entries.forEach(entry => {
   threshold: 0.2
 });
 
-['#home', '#about-me', '#portfolio'].forEach(s => observer.observe(document.querySelector(s)))
+['#about-me', '#portfolio'].forEach(s => observer.observe(document.querySelector(s)))
 
 // SHOW HEADER ON NAV BUTTON CLICK
 function removeHeader() {

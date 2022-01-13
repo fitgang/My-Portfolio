@@ -9,18 +9,6 @@
   />
   <link rel="stylesheet" href="dist/css/style.min.css" media="print" onload="this.media='all'; this.onload=null;">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;900&display=swap');
-     :root {
-      --color1: #344059;
-      --color2: #90584c;
-      --color3: #e9f1f2
-    }
-    
-    body {
-      overflow-x: hidden;
-      background: var(--color3)
-    }
-    
     .flex {
       display: flex;
       justify-content: center;
@@ -37,6 +25,7 @@
       width: 100vw;
       height: 100vh;
       top: 0;
+      z-index: 10;
     }
     
     #preloader .circle {
@@ -48,6 +37,12 @@
       border-radius: 50%;
       -webkit-animation: spin1 1s infinite linear;
       animation: spin1 1s infinite linear;
+    }
+    
+    .remove#preloader {
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 1s ease-in-out, transform 1ms 1s ease-in-out;
     }
     
     @keyframes spin1 {
@@ -65,6 +60,9 @@
 </head>
 
 <body>
+  <div id="preloader" class="flex">
+    <div class="circle"></div>
+  </div>
   <header class="header flex column">
     <h1>Portfolio website of Ayush Gupta</h1>
     <nav>
@@ -152,8 +150,8 @@
     <h2><span>where</span><span>i</span><span>learn</span></h2>
     <p>I learnt about the web, so far, from the web through my laptop at my home. I begin around September 2020. Google and Youtube are the vast libraries from where I got all the information. I was pretty lazy in the beginning, just sitting for an hour
       on the laptop coding was exhausting, but now am better at it.</p>
-    <p> Most of my learnings are from <a href="https://www.freecodecamp.org/" rel="noreferrer" id="fcc" title="click to view website" target="_blank">freecodecamp</a> and traversy media on youtube. I regularly read content on w3schools and MDN. And I find
-      searching on google as a soft skill for developers.</p>
+    <p> Most of my learnings are from <a href="https://www.freecodecamp.org/" rel="noreferrer" id="fcc" title="click to view website" target="_blank">freecodecamp</a>. I regularly read content on w3schools and MDN. And I find searching on google as a soft
+      skill for developers.</p>
 
     <h3>Following are some of the certifications I did -</h3>
     <ul id="cert-links">
@@ -194,20 +192,19 @@
   </footer>
   <div class="nav-btn none" title="open navigation"><i class="fas fa-compass"></i></div>
   <div id="return" title="exit navigation"><i class="fas fa-long-arrow-alt-right"></i></div>
-  <div id="preloader" class="flex">
-    <div class="circle"></div>
-  </div>
   <script>
     document.addEventListener("readystatechange", (e) => {
       if (e.target.readyState == "complete") {
-        removePreloader()
+        removePreloader();
+
+        // Show navigation button
         setTimeout(() => document.getElementsByClassName("nav-btn")[0].classList.remove("none"), 5000)
       }
     })
 
     function removePreloader() {
       const preloader = document.getElementById("preloader");
-      preloader.style.display = "none";
+      preloader.classList.add("remove");
     }
   </script>
   <script src="script.min.js"></script>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;900&display=swap');
 @mixin mq($size) {
   @media screen and (max-width: $size) {
     @content;
@@ -5,6 +6,9 @@
 }
 
 :root {
+  --color1: #344059;
+  --color2: #90584c;
+  --color3: #e9f1f2;
   --width: 200px;
   --absValue: calc(var(--width)*3/4);
   @include mq(700px) {
@@ -21,6 +25,11 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--color3)
 }
 
 a {
@@ -69,26 +78,9 @@ a {
   font-size: clamp(60px, 9vw, 100px)
 }
 
-#three-words span,
-#explanation,
-#about-btn,
-#about-btn:after,
-#photo {
-  opacity: 0
-}
-
 #three-words span {
   display: block;
   line-height: 95%
-}
-
-#three-words span:first-child {
-  transform: rotate(-90deg);
-  transform-origin: bottom left
-}
-
-#three-words span:nth-child(2) {
-  transform: translateX(-100%)
 }
 
 #three-words span#and {
@@ -124,7 +116,6 @@ a {
   line-height: 1.3em;
   word-spacing: 1px;
   letter-spacing: 0.3px;
-  opacity: 0;
 }
 
 #about-btn {
@@ -148,6 +139,7 @@ a {
     position: absolute;
     right: 1em;
     font-weight: 600;
+    opacity: 0;
   }
 }
 
