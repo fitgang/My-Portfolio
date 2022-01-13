@@ -1,121 +1,219 @@
 @mixin mq($size) {
-    @media screen and (max-width: $size) {
-        @content;
-    }
+  @media screen and (max-width: $size) {
+    @content;
+  }
 }
 
 :root {
-    --width: 200px;
-    --absValue: calc(var(--width)*3/4);
-    @include mq(700px) {
-        --absValue: calc(var(--width)/2);
-    }
+  --width: 200px;
+  --absValue: calc(var(--width)*3/4);
+  @include mq(700px) {
+    --absValue: calc(var(--width)/2);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+.none {
+  display: none;
+}
+
+.header {
+  transform: translateX(-100%)
+}
+
+#three-words span,
+#who-am-i span,
+#portfolio h2,
+#learning h2 span {
+  font-family: 'Oswald', sans-serif
+}
+
+.sections {
+  min-height: 100vh;
+  padding: 1em
+}
+
+#home,
+#preloader,
+#contact {
+  color: var(--color3);
+  background: var(--color1)
+}
+
+#home {
+  justify-content: space-evenly
+}
+
+#ideology {
+  max-width: 500px;
+  min-width: 300px;
+  margin-top: 1em
+}
+
+#three-words {
+  font-size: clamp(60px, 9vw, 100px)
+}
+
+#three-words span,
+#explanation,
+#about-btn,
+#about-btn:after,
+#photo {
+  opacity: 0
+}
+
+#three-words span {
+  display: block;
+  line-height: 95%
+}
+
+#three-words span:first-child {
+  transform: rotate(-90deg);
+  transform-origin: bottom left
+}
+
+#three-words span:nth-child(2) {
+  transform: translateX(-100%)
+}
+
+#three-words span#and {
+  font-size: .5em;
+  padding-top: 3%
+}
+
+#three-words span#and,
+#who-am-i span:last-child,
+#portfolio h2,
+.name,
+#learning h2 span:nth-child(2) {
+  font-weight: 100
 }
 
 @import 'header';
 .sections {
-    @include mq(350px) {
-        padding: 1px;
-    }
+  @include mq(350px) {
+    padding: 1px;
+  }
 }
 
-#about-me {
-    color: var(--color2);
+#about-me,
+#learning {
+  color: var(--color1);
 }
 
 #explanation,
 #who-am-i p {
-    color: var(--color3);
-    margin-top: 0.5em;
-    font-size: clamp(14px, 1.53vw, 16px);
-    line-height: 1.3em;
-    word-spacing: 1px;
-    letter-spacing: 0.3px;
-    opacity: 0;
+  color: var(--color3);
+  margin-top: 0.5em;
+  font-size: clamp(14px, 1.53vw, 16px);
+  line-height: 1.3em;
+  word-spacing: 1px;
+  letter-spacing: 0.3px;
+  opacity: 0;
 }
 
 #about-btn {
-    width: clamp(36px, 5.5vw, 64px);
-    height: clamp(36px, 5.5vw, 64px);
-    color: var(--color2);
-    border: 3px solid var(--color3);
-    border-radius: 100px;
-    margin: 2em auto auto 2em;
-    background: var(--color3);
-    position: relative;
-    transition: 300ms ease;
-    .fas {
-        font-size: clamp(15px, 2.5vw, 28px);
-        position: absolute;
-        left: 27%;
-        transition: inherit;
-    }
-    &::after {
-        content: "About me";
-        position: absolute;
-        right: 1em;
-        font-weight: 600;
-    }
+  width: clamp(36px, 5.5vw, 64px);
+  height: clamp(36px, 5.5vw, 64px);
+  color: var(--color2);
+  border: 3px solid var(--color3);
+  border-radius: 100px;
+  margin: 2em auto auto 2em;
+  background: var(--color3);
+  position: relative;
+  transition: 300ms ease;
+  .fas {
+    font-size: clamp(15px, 2.5vw, 28px);
+    position: absolute;
+    left: 27%;
+    transition: inherit;
+  }
+  &::after {
+    content: "About me";
+    position: absolute;
+    right: 1em;
+    font-weight: 600;
+  }
 }
 
 #about-btn:hover,
 #about-btn:focus {
-    width: clamp(145px, 17vw, 200px);
-    .fas {
-        left: 10%;
-    }
-    &::after {
-        transition: opacity 0.5s ease-in;
-        opacity: 1;
-    }
+  width: clamp(145px, 17vw, 200px);
+  .fas {
+    left: 10%;
+  }
+  &::after {
+    transition: opacity 0.5s ease-in;
+    opacity: 1;
+  }
 }
 
 #photo {
-    width: clamp(280px, 45vw, 350px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid;
-    padding: 0.1em;
-    margin: 1em;
-    animation: shake 1s, up 1s;
+  width: clamp(280px, 45vw, 350px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 5px solid;
+  padding: 0.1em;
+  margin: 1em;
+  -webkit-animation: shake 1s, up 1s;
+  animation: shake 1s, up 1s;
 }
 
 .view-home {
-    #three-words {
-        span {
-            opacity: 1;
-            &:first-child {
-                transform: rotate(0deg);
-                transition: transform 0.3s ease-out 1.4s, opacity 0.3s ease-out 1.4s;
-            }
-            &:nth-child(2) {
-                transform: translateX(0);
-                transition: transform 0.4s ease 1.8s, opacity 0.4s ease 1.8s;
-            }
-            &:nth-child(3) {
-                transition: transform 0.1s ease 2.3s, opacity 0.1s ease 2.3s;
-            }
-            &:last-child {
-                transition: transform 0.8s ease-in 2.5s, opacity 0.8s ease-in 2.5s;
-            }
-        }
+  #three-words {
+    span {
+      opacity: 1;
+      &:first-child {
+        transform: rotate(0deg);
+        transition: transform 0.3s ease-out 1.4s, opacity 0.3s ease-out 1.4s;
+      }
+      &:nth-child(2) {
+        transform: translateX(0);
+        transition: transform 0.4s ease 1.8s, opacity 0.4s ease 1.8s;
+      }
+      &:nth-child(3) {
+        transition: transform 0.1s ease 2.3s, opacity 0.1s ease 2.3s;
+      }
+      &:last-child {
+        transition: transform 0.8s ease-in 2.5s, opacity 0.8s ease-in 2.5s;
+      }
     }
-    #explanation,
-    #about-btn,
-    #photo {
-        animation: op 0.8s ease 3.4s forwards
-    }
+  }
+  #explanation,
+  #about-btn,
+  #photo {
+    -webkit-animation: op 0.8s ease 3.4s forwards;
+    animation: op 0.8s ease 3.4s forwards
+  }
+}
+
+@-webkit-keyframes op {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes op {
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @import 'about';
@@ -124,41 +222,38 @@ html {
 @import 'contact';
 .nav-btn,
 #return {
-    z-index: 1;
-    position: fixed;
-    top: -50px;
-    left: 50%;
-    border: none;
-    background: #ff0d0d;
-    color: #fff;
-    border-radius: 33px;
-    padding: 0.4em;
-    box-shadow: 0px 0px 6px 0px black;
-    transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), top 1s ease;
-    i {
-        font-size: 2.2rem;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-        transform: scale(1.2) rotate(360deg);
-        cursor: pointer;
-    }
+  position: fixed;
+  background: #ff0d0d;
+  color: #fff;
+  border-radius: 33px;
+  padding: 0.4em;
+  box-shadow: 0px 0px 6px 0px black;
+  transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), top 1s ease;
+  i {
+    font-size: 2.2rem;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    transform: scale(1.2) rotate(360deg);
+    cursor: pointer;
+  }
+}
+
+.nav-btn {
+  bottom: 3%;
+  right: 3%;
 }
 
 #return {
-    z-index: 2;
-    top: 15px;
-    left: 75%;
-    border-radius: 0;
-    &:hover,
-    &:focus,
-    &:active {
-        transform: scale(1.2);
-    }
-    display: none;
-}
-
-.show-nav {
-    top: 50px;
+  z-index: 2;
+  top: 15px;
+  left: 75%;
+  border-radius: 0;
+  &:hover,
+  &:focus,
+  &:active {
+    transform: scale(1.2);
+  }
+  display: none;
 }

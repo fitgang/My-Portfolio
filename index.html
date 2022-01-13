@@ -2,140 +2,215 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="dns-prefetch stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="dist/css/style.css" media="print" onload="this.media='all'; this.onload=null;">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;900&display=swap');:root{--color1:#344059;--color2:#90584c;--color3:#e9f1f2}*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{overflow-x:hidden;background:var(--color3)}.flex{display:flex;justify-content:center;align-items:center;flex-flow:wrap}.column{flex-direction:column}a{text-decoration:none;color:inherit}#preloader{position:absolute;top:0;width:100vw;height:100vh;font-size:7rem;animation:track-in 1.4s cubic-bezier(.215,.61,.355,1) both}@keyframes track-in{0%{letter-spacing:-.5em;transform:scale(0);opacity:0}40%{transform:scale(1);opacity:1}90%{opacity:0;top:0}100%{opacity:0;top:-100%}}.header{transform:translateX(-100%)}#three-words span,#who-am-i span,#portfolio h2,#learning h2 span{font-family:'Oswald',sans-serif}.sections{min-height:100vh;padding:1em}#home,#learning,#preloader{color:var(--color3);background:var(--color1)}#home{justify-content:space-evenly}#ideology{max-width:500px;min-width:300px;margin-top:1em}#three-words{font-size:clamp(60px,9vw,100px)}
-#three-words span,#explanation,#about-btn,#about-btn:after,#photo{opacity:0}#three-words span{display:block;line-height:95%}#three-words span:first-child{transform:rotate(-90deg);transform-origin:bottom left}#three-words span:nth-child(2){transform:translateX(-100%)}#three-words span#and{font-size:.5em;padding-top:3%}#three-words span#and,#who-am-i span:last-child,#portfolio h2,.name,#learning h2 span:nth-child(2){font-weight:100}
-    </style>
-    <title>Ayush Gupta</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="dns-prefetch stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="dist/css/style.min.css" media="print" onload="this.media='all'; this.onload=null;">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;900&display=swap');
+     :root {
+      --color1: #344059;
+      --color2: #90584c;
+      --color3: #e9f1f2
+    }
+    
+    body {
+      overflow-x: hidden;
+      background: var(--color3)
+    }
+    
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: wrap
+    }
+    
+    .column {
+      flex-direction: column
+    }
+    
+    #preloader {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+    }
+    
+    #preloader .circle {
+      height: 50px;
+      width: 50px;
+      border: 4px rgba(0, 0, 0, 0.25) solid;
+      border-top: 4px solid;
+      border-bottom: 4px solid;
+      border-radius: 50%;
+      -webkit-animation: spin1 1s infinite linear;
+      animation: spin1 1s infinite linear;
+    }
+    
+    @keyframes spin1 {
+      from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+      }
+    }
+  </style>
+  <title>Ayush Gupta</title>
 </head>
 
 <body>
-    <header class="header flex column">
-        <h1>Portfolio website of Ayush Gupta</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about-me">About</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#learning">Learning</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-    <section class="flex sections" id="home">
-        <section id="ideology">
-            <h2 id="three-words"><span>Mindset</span><span>Application</span><span id="and">and</span><span>Patience</span></h2>
-            <p id="explanation">The three things on which I always work on, either its developing a website or starting a new exercise habit. Apply with a positive mindset, fail, iterate and be patient for better results.</p>
-            <a href="#about-me" id="about-btn" class="flex" title="click to view about page"><i class="fas fa-user"></i></a>
-        </section>
-        <img src="img/my-photo.jpg" id="photo" alt="Enthusiastic Gupta" title="Ayush Gupta">
+  <header class="header flex column">
+    <h1>Portfolio website of Ayush Gupta</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about-me">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#learning">Learning</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section class="flex sections" id="home">
+    <section id="ideology">
+      <h2 id="three-words"><span>Mindset</span><span>Application</span><span id="and">and</span><span>Patience</span>
+      </h2>
+      <p id="explanation">The three things on which I always work on, either its developing a website or starting a new exercise habit. Apply with a positive mindset, fail, iterate and be patient for better results.</p>
+      <a href="#about-me" id="about-btn" class="flex" title="click to view about page"><i class="fas fa-user"></i></a>
     </section>
-    <section class="sections flex column" id="about-me">
-        <section id="who-am-i" class="flex">
-            <h2><span>Who<br>Am</span><span>I</span></h2>
-            <p>Hi, I am <strong>Ayush Gupta</strong>, a <strong>student, front end web developer and fitness enthusiast</strong> based in Gaya, Bihar, India. I have completed my matriculation in my hometown only. Currently, I am studying in GBPEC in New Delhi, India, in my 3<sup>rd</sup> year of graduation. I am an active guy and a big fan of science fiction movies (Interstellar just blew my mind). I can speak english quite well and try to talk in hindi more (if you can understand), शुद्ध हिंदी not hinglish and I workout 5 days a week.</p>
-        </section>
-        <a href="#portfolio" id="see-my-work" title="click to view work">See My Work</a>
+    <img src="img/my-photo.jpg" id="photo" alt="Enthusiastic Gupta" title="Ayush Gupta">
+  </section>
+  <section class="sections flex column" id="about-me">
+    <section id="who-am-i" class="flex">
+      <h2><span>Who<br>Am</span><span>I</span></h2>
+      <p>Hi, I am <strong>Ayush Gupta</strong>, a <strong>student, front end web developer and fitness
+          enthusiast</strong> based in Gaya, Bihar, India. I have completed my matriculation in my hometown only. Currently, I am studying in GBPEC in New Delhi, India, in my 3<sup>rd</sup> year of graduation. I am an active guy and a big fan of science
+        fiction movies (Interstellar just blew my mind). I can speak english quite well and try to talk in hindi more (if you can understand), शुद्ध हिंदी not hinglish and I workout 5 days a week.</p>
     </section>
-    <section class="sections" id="portfolio">
-        <h2>MY PORTFOLIO</h2>
-        <nav id="cube-nav">
-            <div class="serial-num flex" title="click to view project 1" aria-label="click to view project 1" tabindex="0">P-1</div>
-            <div class="serial-num flex" title="click to view project 2" aria-label="click to view project 2" tabindex="0">P-2</div>
-            <div class="serial-num flex" title="click to view project 3" aria-label="click to view project 3" tabindex="0">P-3</div>
-            <div class="serial-num flex" title="click to view project 4" aria-label="click to view project 4" tabindex="0">P-4</div>
-            <div class="serial-num flex" title="click to view project 5" aria-label="project 5 coming Soon" tabindex="0">P-5</div>
-            <div class="serial-num flex" title="click to view project 6" aria-label="project 6 coming Soon" tabindex="0">P-6</div>
-        </nav>
-        <section class="projects-cube flex">
-            <section class="projects flex">
-                <h3 class="name">Random Blog</h3>
-                <p class="description">
-                    A dummy blog website with built-in search. <a href="https://random-blog01.herokuapp.com/" target="_blank" rel="noreferrer" class="project-links" aria-label="view random blog">View project</a>
-                </p>
-            </section>
-            <section class="projects flex">
-                <h3 class="name">Markdown previewer</h3>
-                <p class="description">Made with <em>React js</em>, this application helps you preview your markdown. <a href="https://codepen.io/fitc0de/full/WNjMPqg" target="_blank" rel="noreferrer" class="project-links" aria-label="view markdown">View project</a></p>
-            </section>
-            <section class="projects flex">
-                <h3 class="name">Currency converter</h3>
-                <p class="description">
-                    Using a <em>third party API</em>, this application can convert your money in more than 100 currencies.<a href="https://fitgang.github.io/currency_converter/" target="_blank" rel="noreferrer" class="project-links" aria-label="view currency converter">View project</a>
-                </p>
-            </section>
-            <section class="projects flex">
-                <h3 class="name">Random Quote Machine</h3>
-                <p class="description">
-                    Made with <em>React js</em>, this app uses the power of components to motivate you. <a href="https://codepen.io/fitc0de/full/qBmpYYw" target="_blank" rel="noreferrer" class="project-links" aria-label="view quote machine">View project</a>
-                </p>
-            </section>
-            <section class="projects flex">
-                <h3 class="name">Typemaster</h3>
-                <p class="description">
-                    what makes this game special is the <em>Speech Synthesis API</em> helping you focus the keyboard, not the screen. <a href="https://fitgang.github.io/type_master/" target="_blank" rel="noreferrer" class="project-links" aria-label="view typemaster">View project</a>
-                </p>
-            </section>
-            <section class="projects flex">
-                <h3 class="name">25 + 5 Clock</h3>
-                <p class="description">
-                    A countdown timer with a break length with a sound indicator and neon based UI. Made with <em>React</em> and <em>SASS</em>.<a href="https://codepen.io/fitc0de/full/RwVebYq" target="_blank" rel="noreferrer" class="project-links" aria-label="view clock">View project</a>
-                </p>
-            </section>
-        </section>
-        <a href="#learning" id="my-sources" class="flex" title="click to view learning">MY Sources</a>
+    <a href="#portfolio" id="see-my-work" title="click to view work">See My Work</a>
+  </section>
+  <section class="sections" id="portfolio">
+    <h2>MY PORTFOLIO</h2>
+    <nav id="cube-nav">
+      <div class="serial-num flex" title="click to view project 1" aria-label="click to view project 1" tabindex="0">P-1
+      </div>
+      <div class="serial-num flex" title="click to view project 2" aria-label="click to view project 2" tabindex="0">P-2
+      </div>
+      <div class="serial-num flex" title="click to view project 3" aria-label="click to view project 3" tabindex="0">P-3
+      </div>
+      <div class="serial-num flex" title="click to view project 4" aria-label="click to view project 4" tabindex="0">P-4
+      </div>
+      <div class="serial-num flex" title="click to view project 5" aria-label="project 5 coming Soon" tabindex="0">P-5
+      </div>
+      <div class="serial-num flex" title="click to view project 6" aria-label="project 6 coming Soon" tabindex="0">P-6
+      </div>
+    </nav>
+    <section class="projects-cube flex">
+      <section class="projects flex">
+        <h3 class="name">Random Blog</h3>
+        <p class="description">
+          A dummy blog website with built-in search. <a href="https://random-blog01.herokuapp.com/" target="_blank" rel="noreferrer" class="project-links" aria-label="view random blog">View project</a>
+        </p>
+      </section>
+      <section class="projects flex">
+        <h3 class="name">Markdown previewer</h3>
+        <p class="description">Made with <em>React js</em>, this application helps you preview your markdown. <a href="https://codepen.io/fitc0de/full/WNjMPqg" target="_blank" rel="noreferrer" class="project-links" aria-label="view markdown">View project</a></p>
+      </section>
+      <section class="projects flex">
+        <h3 class="name">Currency converter</h3>
+        <p class="description">
+          Using a <em>third party API</em>, this application can convert your money in more than 100 currencies.<a href="https://fitgang.github.io/currency_converter/" target="_blank" rel="noreferrer" class="project-links" aria-label="view currency converter">View project</a>
+        </p>
+      </section>
+      <section class="projects flex">
+        <h3 class="name">Random Quote Machine</h3>
+        <p class="description">
+          Made with <em>React js</em>, this app uses the power of components to motivate you. <a href="https://codepen.io/fitc0de/full/qBmpYYw" target="_blank" rel="noreferrer" class="project-links" aria-label="view quote machine">View project</a>
+        </p>
+      </section>
+      <section class="projects flex">
+        <h3 class="name">Typemaster</h3>
+        <p class="description">
+          what makes this game special is the <em>Speech Synthesis API</em> helping you focus the keyboard, not the screen. <a href="https://fitgang.github.io/type_master/" target="_blank" rel="noreferrer" class="project-links" aria-label="view typemaster">View project</a>
+        </p>
+      </section>
+      <section class="projects flex">
+        <h3 class="name">25 + 5 Clock</h3>
+        <p class="description">
+          A countdown timer with a break length with a sound indicator and neon based UI. Made with <em>React</em> and
+          <em>SASS</em>.<a href="https://codepen.io/fitc0de/full/RwVebYq" target="_blank" rel="noreferrer" class="project-links" aria-label="view clock">View project</a>
+        </p>
+      </section>
     </section>
-    <section id="learning" class="sections">
-        <h2><span>where</span><span>i</span><span>learn</span></h2>
-        <p>I learnt about the web, so far, from the web through my laptop at my home. I begin around September 2020. Google and Youtube are the vast libraries from where I got all the information. I was pretty lazy in the beginning, just sitting for an hour
-            on the laptop coding was exhausting, but now am better at it.</p>
-        <p> Most of my learnings are from <a href="https://www.freecodecamp.org/" rel="noreferrer" id="fcc" title="click to view website" target="_blank">freecodecamp</a> and traversy media on youtube. I regularly read content on w3schools and MDN. And I find searching on
-            google as a soft skill for developers.</p>
+    <a href="#learning" id="my-sources" class="flex" title="click to view learning">MY Sources</a>
+  </section>
+  <section id="learning" class="sections">
+    <h2><span>where</span><span>i</span><span>learn</span></h2>
+    <p>I learnt about the web, so far, from the web through my laptop at my home. I begin around September 2020. Google and Youtube are the vast libraries from where I got all the information. I was pretty lazy in the beginning, just sitting for an hour
+      on the laptop coding was exhausting, but now am better at it.</p>
+    <p> Most of my learnings are from <a href="https://www.freecodecamp.org/" rel="noreferrer" id="fcc" title="click to view website" target="_blank">freecodecamp</a> and traversy media on youtube. I regularly read content on w3schools and MDN. And I find
+      searching on google as a soft skill for developers.</p>
 
-        <h3>Following are some of the certifications I did -</h3>
-        <ul id="cert-links">
-            <li><a href="https://www.freecodecamp.org/certification/acoderg/javascript-algorithms-and-data-structures" target="_blank" rel="noreferrer">JavaScript</a></li>
-            <li><a href="doc/coursera_html_cert.pdf" target="_blank" aria-label="html pdf certificate">HTML5</a></li>
-            <li><a href="doc/coursera_css_cert.pdf" target="_blank" aria-label="css pdf certificate">CSS3</a></li>
-        </ul>
+    <h3>Following are some of the certifications I did -</h3>
+    <ul id="cert-links">
+      <li><a href="https://www.freecodecamp.org/certification/acoderg/javascript-algorithms-and-data-structures" target="_blank" rel="noreferrer">JavaScript</a></li>
+      <li><a href="doc/coursera_html_cert.pdf" target="_blank" aria-label="html pdf certificate">HTML5</a></li>
+      <li><a href="doc/coursera_css_cert.pdf" target="_blank" aria-label="css pdf certificate">CSS3</a></li>
+    </ul>
 
-        <a href="#contact" id="say-hello" title="click to view contact page">Say Hello</a>
+    <a href="#contact" id="say-hello" title="click to view contact page">Say Hello</a>
+  </section>
+  <footer id="contact">
+    <section>
+      <h2>Find me on</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/ayush-gupta-0b01691b3/" target="_blank" class="flex">LinkedIn <i
+              class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="https://twitter.com/fitc0de" target="_blank" class="flex">Twitter <i
+              class="fab fa-twitter"></i></a></li>
+      </ul>
+      <h2>See more of my work</h2>
+      <ul>
+        <li><a href="https://github.com/fitgang" target="_blank" class="flex">Github <i class="fab fa-github"></i></a>
+        </li>
+        <li><a href="https://codepen.io/fitc0de" target="_blank" class="flex">Codepen <i class="fab fa-codepen"></i></a>
+        </li>
+      </ul>
     </section>
-    <footer id="contact">
-        <section>
-            <h2>Find me on</h2>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/ayush-gupta-0b01691b3/" target="_blank" class="flex">LinkedIn <i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="https://twitter.com/fitc0de" target="_blank" class="flex">Twitter <i class="fab fa-twitter"></i></a></li>
-            </ul>
-            <h2>See more of my work</h2>
-            <ul>
-                <li><a href="https://github.com/fitgang" target="_blank" class="flex">Github <i class="fab fa-github"></i></a></li>
-                <li><a href="https://codepen.io/fitc0de" target="_blank" class="flex">Codepen <i class="fab fa-codepen"></i></a></li>
-            </ul>
-        </section>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about-me">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#learning">Learning</a></li>
-            </ul>
-        </nav>
-        <a href="https://github.com/fitgang/my-portfolio" target="_blank" id="source-code">Website Source Code</a>
-        <a href="#home" id="top">Back to top</a>
-    </footer>
-    <div class="nav-btn" title="open navigation"><i class="fas fa-compass"></i></div>
-    <div id="return" title="exit navigation"><i class="fas fa-long-arrow-alt-right"></i></div>
-    <div id="preloader" class="flex"> Hello </div>
-    <script>
-        const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{let sections={"home":'view-home',"about-me":'view-about',"portfolio":'view-portfolio'};let className=sections[entry.target.id];if(entry.isIntersecting){entry.target.classList.add(className);observer.unobserve(entry.target)}}),{threshold:0.2});['#home','#about-me','#portfolio'].forEach(s=>observer.observe(document.querySelector(s)))
-    </script>
-    <script src="script.min.js"></script>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about-me">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#learning">Learning</a></li>
+      </ul>
+    </nav>
+    <a href="https://github.com/fitgang/my-portfolio" target="_blank" id="source-code">Website Source Code</a>
+    <a href="#home" id="top">Back to top</a>
+  </footer>
+  <div class="nav-btn none" title="open navigation"><i class="fas fa-compass"></i></div>
+  <div id="return" title="exit navigation"><i class="fas fa-long-arrow-alt-right"></i></div>
+  <div id="preloader" class="flex">
+    <div class="circle"></div>
+  </div>
+  <script>
+    document.addEventListener("readystatechange", (e) => {
+      if (e.target.readyState == "complete") {
+        removePreloader()
+        setTimeout(() => document.getElementsByClassName("nav-btn")[0].classList.remove("none"), 5000)
+      }
+    })
+
+    function removePreloader() {
+      const preloader = document.getElementById("preloader");
+      preloader.style.display = "none";
+    }
+  </script>
+  <script src="script.min.js"></script>
 </body>
 
 </html>
