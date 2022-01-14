@@ -9,6 +9,11 @@
   />
   <link rel="stylesheet" href="dist/css/style.min.css" media="print" onload="this.media='all'; this.onload=null;">
   <style>
+     :root {
+      --preloader-color: #e9f1f2;
+      --preloader-bg: #344059;
+    }
+    
     .flex {
       display: flex;
       justify-content: center;
@@ -21,6 +26,8 @@
     }
     
     #preloader {
+      background: var(--preloader-bg);
+      color: var(--preloader-color);
       position: fixed;
       width: 100vw;
       height: 100vh;
@@ -55,6 +62,7 @@
         transform: rotate(359deg);
       }
     }
+    /* preloader credits - https://codepen.io/mrsahar/pen/pMxyrE */
   </style>
   <title>Ayush Gupta</title>
 </head>
