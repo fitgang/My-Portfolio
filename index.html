@@ -126,7 +126,11 @@
   </header>
   <section id="my-work">
     <h2 id="my-work-heading" class="uppercase">my work</h2>
-    <ul class="ui three stackable centered cards" id="my-work-cards"></ul>
+    <div class="flex my-work-carousel" id="my-work-carousel">
+      <ul class="flex" id="my-work-cards"></ul>
+      <i class="chevron left icon carousel-arrows" id="carousel-left-arrow"></i>
+      <i class="chevron right icon carousel-arrows" id="carousel-right-arrow"></i>
+    </div>
     <a class="ui animated fade button my-work-btn black-btn" href="https://github.com/fitgang?tab=repositories" id="cta-for-repos" target="_blank">
       <div class="visible content capitalize">view more</div>
       <div class="hidden content">
@@ -142,8 +146,8 @@
   </section>
   <section id="about-me">
     <h2 id="about-me-heading" class="uppercase">about me</h2>
-    <img src="./images/me.jpg" alt="ayush gupta" title="Ayush Gupta" id="about-me-image">
-    <p>
+    <img src="/images/me.jpg" alt="ayush gupta" title="Ayush Gupta" id="about-me-image">
+    <p id="about-me-body">
       Hi, I am Ayush Gupta, a student, front end web developer from in Bihar, India. I have completed my matriculation in my hometown only. Currently, I am studying in GBPEC in New Delhi, India, in my 3rd year of graduation. I started web dev with the aim to
       better understand computer technology, and with this observation that technology is going to be an integral part of every industry and websites are the second most needed thing, after a social media profile, for any organisation or an individual.
       I can speak english and hindi both and I workout 5 days a week.
@@ -196,6 +200,12 @@
       </dd>
 
     </dl>
+    <!-- <a class="ui animated fade button blue-btn" href="#contact" id="cta-for-message-form">
+      <div class="visible content capitalize">message me</div>
+      <div class="hidden content">
+        <i class="paper plane icon"></i>
+      </div>
+    </a> -->
   </section>
   <footer id="contact">
     <div class="none">
